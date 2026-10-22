@@ -1,0 +1,163 @@
+/*
+  Final typography settings.
+  This file must be connected AFTER styles.css.
+*/
+
+@font-face {
+    font-family: "BebasCyrillicSite";
+    src:
+            local("Bebas Neue Cyrillic"),
+            local("BebasNeueCyrillic"),
+            url("./fonts/Bebas Neue Cyrillic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+:root {
+    --font-heading: "BebasCyrillicSite", "Arial Narrow", sans-serif;
+    --font-body: "Montserrat", Arial, sans-serif;
+}
+
+/* Everything except headings uses Montserrat. */
+html,
+body,
+p,
+a,
+li,
+label,
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-body) !important;
+}
+
+/* All real headings use Bebas Neue Cyrillic. */
+h1,
+h2,
+h3,
+h4,
+.section-title,
+.hero__title,
+.about-hero__title,
+.language-page-hero__title,
+.pastor-page-hero__title,
+.give-page-hero__title,
+.meet-page-hero__title,
+.launch-page-hero__title,
+.pastor-quote__title,
+.pastor-quote__text {
+    font-family: var(--font-heading) !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    letter-spacing: 0.004em !important;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* Desktop. */
+.hero__title {
+    font-size: clamp(72px, 11.5vw, 150px) !important;
+    line-height: 0.86 !important;
+}
+
+.section-title {
+    font-size: clamp(46px, 5.5vw, 80px) !important;
+    line-height: 0.98 !important;
+}
+
+.about-hero__title,
+.language-page-hero__title,
+.pastor-page-hero__title,
+.give-page-hero__title,
+.meet-page-hero__title,
+.launch-page-hero__title {
+    font-size: clamp(62px, 8.5vw, 124px) !important;
+    line-height: 0.92 !important;
+}
+
+.rock .section-title {
+    font-size: clamp(72px, 7.5vw, 104px) !important;
+    line-height: 0.92 !important;
+}
+
+article h3 {
+    font-size: clamp(24px, 2.1vw, 32px) !important;
+    line-height: 1.08 !important;
+}
+
+/* Tablet. */
+@media (max-width: 1024px) {
+    .hero__title {
+        font-size: clamp(64px, 10.5vw, 110px) !important;
+    }
+
+    .section-title {
+        font-size: clamp(42px, 6.2vw, 64px) !important;
+    }
+
+    .about-hero__title,
+    .language-page-hero__title,
+    .pastor-page-hero__title,
+    .give-page-hero__title,
+    .meet-page-hero__title,
+    .launch-page-hero__title {
+        font-size: clamp(56px, 8vw, 84px) !important;
+    }
+}
+
+/* Mobile. */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: clamp(56px, 16vw, 84px) !important;
+        line-height: 0.9 !important;
+    }
+
+    .section-title {
+        font-size: clamp(36px, 9.5vw, 52px) !important;
+        line-height: 1 !important;
+    }
+
+    .about-hero__title,
+    .language-page-hero__title,
+    .pastor-page-hero__title,
+    .give-page-hero__title,
+    .meet-page-hero__title,
+    .launch-page-hero__title {
+        font-size: clamp(46px, 12vw, 66px) !important;
+        line-height: 0.96 !important;
+    }
+
+    .rock .section-title {
+        font-size: clamp(58px, 14vw, 78px) !important;
+    }
+
+    article h3 {
+        font-size: clamp(23px, 6vw, 29px) !important;
+    }
+}
+
+/* Small phones. */
+@media (max-width: 420px) {
+    .hero__title {
+        font-size: clamp(52px, 15.5vw, 64px) !important;
+    }
+
+    .section-title {
+        font-size: clamp(34px, 9.5vw, 44px) !important;
+    }
+
+    .about-hero__title,
+    .language-page-hero__title,
+    .pastor-page-hero__title,
+    .give-page-hero__title,
+    .meet-page-hero__title,
+    .launch-page-hero__title {
+        font-size: clamp(42px, 11.5vw, 54px) !important;
+    }
+
+    .rock .section-title {
+        font-size: clamp(54px, 14vw, 66px) !important;
+    }
+}

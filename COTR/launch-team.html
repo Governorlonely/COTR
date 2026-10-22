@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Присоединиться к Launch Team Church on the Rock.">
+
+  <meta property="og:title" content="Launch Team — Church on the Rock">
+  <meta property="og:description" content="Станьте частью команд, которые помогают развитию церкви.">
+  <meta property="og:image" content="images/community.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="images/cross.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/BebasNeueCyrillic.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Launch Team — Church on the Rock</title>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <header class="site-header" data-header>
+    <div class="container">
+      <div class="site-header__inner">
+        <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
+          CHURCH ON THE <span>ROCK</span>
+        </a>
+
+        <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
+          <ul class="site-header__menu">
+            <li><a class="site-header__link" href="index.html">Главная</a></li>
+            <li><a class="site-header__link" href="about.html">О церкви</a></li>
+            <li><a class="site-header__link" href="lets-meet.html">Let’s Meet</a></li>
+            <li><a class="site-header__link" href="launch-team.html" aria-current="page">Launch Team</a></li>
+            <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
+            <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
+          </ul>
+
+          <div class="site-header__mobile-actions">
+            <a class="button button--accent" href="#join-team">Присоединиться</a>
+            <a class="button button--ghost" href="lets-meet.html">Let’s Meet</a>
+          </div>
+        </nav>
+
+        <div class="site-header__actions">
+          <a class="button button--accent button--compact" href="#join-team">Присоединиться</a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-button>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="launch-page-hero" aria-labelledby="launch-page-title">
+      <div class="container">
+        <div class="launch-page-hero__inner">
+          <p class="eyebrow eyebrow--light">Build together</p>
+          <h1 class="launch-page-hero__title" id="launch-page-title">
+            Launch <span>Team</span>
+          </h1>
+          <p class="launch-page-hero__subtitle">
+            Станьте частью команд, которые помогают развитию церкви.
+          </p>
+          <p class="launch-page-hero__note">Опыт не обязателен.</p>
+          <a class="button button--accent button--large" href="#join-team">
+            Присоединиться к Launch Team
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teams -->
+    <section class="launch-page-teams" aria-labelledby="launch-page-teams-title">
+      <div class="container">
+        <div class="launch-page-teams__inner">
+          <header class="section-header section-header--narrow">
+            <p class="eyebrow">Find your place</p>
+            <h2 class="section-title" id="launch-page-teams-title">
+              Выберите свою <span class="section-title__accent">команду</span>
+            </h2>
+          </header>
+
+          <div class="launch-page-teams__grid">
+            <article class="launch-page-card" data-mouse-glow>
+              <span>01</span><h3>Worship Team</h3><p>Музыка и поклонение.</p>
+            </article>
+            <article class="launch-page-card" data-mouse-glow>
+              <span>02</span><h3>Welcome Team</h3><p>Встреча и сопровождение гостей.</p>
+            </article>
+            <article class="launch-page-card" data-mouse-glow>
+              <span>03</span><h3>Kids Team</h3><p>Детское служение.</p>
+            </article>
+            <article class="launch-page-card" data-mouse-glow>
+              <span>04</span><h3>Setup Team</h3><p>Подготовка пространства к мероприятиям и богослужениям.</p>
+            </article>
+          </div>
+
+          <aside class="launch-page-teams__note">
+            <strong>Team Night проходит регулярно.</strong>
+            После регистрации мы свяжемся с вами и пригласим на ближайшую встречу команды.
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join form -->
+    <section class="signup-section" id="join-team" aria-labelledby="launch-signup-title">
+      <div class="container">
+        <div class="signup-section__inner">
+          <div class="signup-section__intro">
+            <p class="eyebrow eyebrow--light">Join the team</p>
+            <h2 class="section-title section-title--light" id="launch-signup-title">
+              Присоединиться к
+              <span class="section-title__accent section-title__accent--block">Launch Team</span>
+            </h2>
+            <p>
+              Расскажите немного о себе и выберите команду. После отправки откроется
+              готовое письмо для связи с нами.
+            </p>
+            <a class="signup-section__phone" href="tel:+14099990935">📞 409-999-0935</a>
+          </div>
+
+          <form
+            class="registration-form"
+            data-email-form
+            data-recipient="sergei@cotr.com"
+            data-subject="Launch Team registration"
+          >
+            <div class="form-field">
+              <label for="team-name">Ваше имя</label>
+              <input id="team-name" name="Имя" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="team-phone">Телефон</label>
+              <input id="team-phone" name="Телефон" type="tel" autocomplete="tel" required>
+            </div>
+
+            <div class="form-field">
+              <label for="team-email">Email</label>
+              <input id="team-email" name="Email" type="email" autocomplete="email">
+            </div>
+
+            <div class="form-field">
+              <label for="team-choice">Интересующая команда</label>
+              <select id="team-choice" name="Команда" required>
+                <option value="">Выберите команду</option>
+                <option>Worship Team</option>
+                <option>Welcome Team</option>
+                <option>Kids Team</option>
+                <option>Setup Team</option>
+                <option>Пока не знаю</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="team-message">Расскажите немного о себе</label>
+              <textarea id="team-message" name="О себе" rows="4"></textarea>
+            </div>
+
+            <button class="button button--accent button--large form-field--full" type="submit">
+              Отправить заявку
+            </button>
+            <p class="registration-form__status form-field--full" data-form-status aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <a class="logo" href="index.html">CHURCH ON THE <span>ROCK</span></a>
+          <p class="site-footer__about">Different backgrounds. One family. Церковь в Северном Хьюстоне, где люди находят духовный дом.</p>
+          <div class="site-footer__socials" aria-label="Социальные сети">
+            <a href="https://www.facebook.com/church.thewoodlands.tx" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/cotr_thewoodlands/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+        <nav class="site-footer__column" aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__list">
+            <li><a href="about.html">О церкви</a></li>
+            <li><a href="lets-meet.html">Let’s Meet</a></li>
+            <li><a href="launch-team.html">Launch Team</a></li>
+            <li><a href="pastor.html">Пастор</a></li>
+            <li><a href="language-courses.html">Языковые курсы</a></li>
+          </ul>
+        </nav>
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Встречи</h2>
+          <address class="site-footer__address"><p>105 FM 1488 Rd</p><p>Conroe, TX 77384</p></address>
+          <p class="site-footer__service-time">Каждое воскресенье · 3:00 PM</p>
+        </div>
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Контакты</h2>
+          <ul class="site-footer__list"><li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li><li><a href="tel:+14099990935">409-999-0935</a></li></ul>
+          <a class="site-footer__give" href="give.html">Поддержать служение</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom"><div class="container"><div class="site-footer__legal"><p>© <span data-current-year>2026</span> Church on the Rock. Все права защищены.</p><a href="#top">Наверх ↑</a></div></div></div>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
