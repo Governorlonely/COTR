@@ -8,6 +8,8 @@
     src:
             local("Bebas Neue Cyrillic"),
             local("BebasNeueCyrillic"),
+            url("./fonts/bebas-neue-cyrillic.woff") format("woff"),
+            url("./fonts/bebas neue cyrillic.ttf") format("truetype"),
             url("./fonts/Bebas Neue Cyrillic.ttf") format("truetype");
     font-style: normal;
     font-weight: 400;
@@ -46,6 +48,8 @@ h4,
 .give-page-hero__title,
 .meet-page-hero__title,
 .launch-page-hero__title,
+.partner-page-hero__title,
+.partner-motto__text,
 .pastor-quote__title,
 .pastor-quote__text {
     font-family: var(--font-heading) !important;
@@ -77,6 +81,11 @@ h4,
     line-height: 0.92 !important;
 }
 
+.partner-page-hero__title {
+    font-size: clamp(56px, 6.4vw, 98px) !important;
+    line-height: 0.92 !important;
+}
+
 .rock .section-title {
     font-size: clamp(72px, 7.5vw, 104px) !important;
     line-height: 0.92 !important;
@@ -102,7 +111,8 @@ article h3 {
     .pastor-page-hero__title,
     .give-page-hero__title,
     .meet-page-hero__title,
-    .launch-page-hero__title {
+    .launch-page-hero__title,
+    .partner-page-hero__title {
         font-size: clamp(56px, 8vw, 84px) !important;
     }
 }
@@ -124,7 +134,8 @@ article h3 {
     .pastor-page-hero__title,
     .give-page-hero__title,
     .meet-page-hero__title,
-    .launch-page-hero__title {
+    .launch-page-hero__title,
+    .partner-page-hero__title {
         font-size: clamp(46px, 12vw, 66px) !important;
         line-height: 0.96 !important;
     }
@@ -153,7 +164,8 @@ article h3 {
     .pastor-page-hero__title,
     .give-page-hero__title,
     .meet-page-hero__title,
-    .launch-page-hero__title {
+    .launch-page-hero__title,
+    .partner-page-hero__title {
         font-size: clamp(42px, 11.5vw, 54px) !important;
     }
 
