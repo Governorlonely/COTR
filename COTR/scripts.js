@@ -77,12 +77,88 @@ document.querySelectorAll("[data-email-form]").forEach((form) => {
       .join("\n");
 
     if (status) {
-      status.textContent = "Открываем почтовое приложение…";
+      status.textContent =
+        document.documentElement.lang === "en"
+          ? "Opening your email app…"
+          : "Открываем почтовое приложение…";
     }
 
     window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 });
+
+// Предзаполнение темы обращения на странице Partnership (#connect).
+const partnerIntentConfig = {
+  monthly: {
+    label: "Monthly Partnership (North Houston · 12 months)",
+    subject: "Monthly Partnership — North Houston",
+    placeholder: "I would like to learn more about becoming a monthly partner for North Houston.",
+  },
+  "one-time": {
+    label: "One-Time Gift (North Houston)",
+    subject: "One-Time Gift — North Houston",
+    placeholder: "I would like to make a one-time gift to support Church on the Rock.",
+  },
+  updates: {
+    label: "Monthly Ministry Updates & Prayer Requests",
+    subject: "Sign Up for Monthly Ministry Updates",
+    placeholder: "Optional note or prayer greeting…",
+    checkUpdates: true,
+  },
+  missions: {
+    label: "Missions Support (Volga Region Leadership & Church Planting)",
+    subject: "Missions Support — Volga Region Ministry",
+    placeholder: "I would like to support Pastor Sergei's leadership training and church planting ministry.",
+  },
+  "contact-sergei": {
+    label: "Direct Message for Pastor Sergei",
+    subject: "Missions & Partnership Inquiry — Pastor Sergei",
+    placeholder: "Write your question or message for Pastor Sergei…",
+  },
+};
+
+const connectForm = document.querySelector("[data-partner-form]");
+if (connectForm) {
+  const intentPill = connectForm.querySelector("[data-intent-pill]");
+  const intentLabel = connectForm.querySelector("[data-intent-label]");
+  const intentReset = connectForm.querySelector("[data-intent-reset]");
+  const intentHidden = connectForm.querySelector("[data-intent-input]");
+  const messageField = connectForm.querySelector("textarea[name='Message']");
+  const updatesCheckbox = connectForm.querySelector("input[type='checkbox']");
+  const nameField = connectForm.querySelector("input[name='Name']");
+  const defaultSubject = connectForm.dataset.subject;
+  const defaultPlaceholder = messageField?.getAttribute("placeholder") || "";
+
+  function applyPartnerIntent(key) {
+    const config = partnerIntentConfig[key];
+    if (!config) return;
+
+    connectForm.dataset.subject = config.subject;
+    if (intentHidden) intentHidden.value = config.label;
+    if (intentLabel) intentLabel.textContent = config.label;
+    if (intentPill) intentPill.hidden = false;
+    if (messageField && !messageField.value.trim()) {
+      messageField.setAttribute("placeholder", config.placeholder);
+    }
+    if (config.checkUpdates && updatesCheckbox) {
+      updatesCheckbox.checked = true;
+    }
+  }
+
+  document.querySelectorAll("[data-partner-intent]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      applyPartnerIntent(trigger.dataset.partnerIntent);
+      window.setTimeout(() => nameField?.focus({ preventScroll: true }), 450);
+    });
+  });
+
+  intentReset?.addEventListener("click", () => {
+    connectForm.dataset.subject = defaultSubject;
+    if (intentHidden) intentHidden.value = "";
+    if (intentPill) intentPill.hidden = true;
+    if (messageField) messageField.setAttribute("placeholder", defaultPlaceholder);
+  });
+}
 
 const year = document.querySelector("[data-current-year]");
 if (year) year.textContent = String(new Date().getFullYear());
