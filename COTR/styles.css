@@ -3619,6 +3619,7 @@ article h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 72%;
     transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -3727,6 +3728,7 @@ article h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 62%;
 }
 
 /* Section 2: 2027 North Houston Ministry Budget */
@@ -4032,8 +4034,11 @@ article h3 {
 }
 
 .partner-missions__media {
+    width: 100%;
+    max-width: 500px;
+    justify-self: end;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     background: linear-gradient(145deg, var(--color-primary), #0c100d);
     border-radius: 28px;
     box-shadow: 0 30px 70px rgba(28, 35, 30, 0.16);
@@ -4043,6 +4048,7 @@ article h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 8%;
     transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -4179,9 +4185,13 @@ article h3 {
         padding: 140px 0 85px;
     }
 
-    .partner-page-hero__media,
-    .partner-missions__media {
+    .partner-page-hero__media {
         max-width: 680px;
+    }
+
+    .partner-missions__media {
+        max-width: 460px;
+        justify-self: start;
     }
 }
 
