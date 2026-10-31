@@ -48,6 +48,9 @@ h4,
 .give-page-hero__title,
 .meet-page-hero__title,
 .launch-page-hero__title,
+.sunday-page-hero__title,
+.events-page-hero__title,
+.visit-page-hero__title,
 .partner-page-hero__title,
 .partner-motto__text,
 .pastor-quote__title,
@@ -76,7 +79,10 @@ h4,
 .pastor-page-hero__title,
 .give-page-hero__title,
 .meet-page-hero__title,
-.launch-page-hero__title {
+.launch-page-hero__title,
+.sunday-page-hero__title,
+.events-page-hero__title,
+.visit-page-hero__title {
     font-size: clamp(62px, 8.5vw, 124px) !important;
     line-height: 0.92 !important;
 }
@@ -112,6 +118,9 @@ article h3 {
     .give-page-hero__title,
     .meet-page-hero__title,
     .launch-page-hero__title,
+    .sunday-page-hero__title,
+    .events-page-hero__title,
+    .visit-page-hero__title,
     .partner-page-hero__title {
         font-size: clamp(56px, 8vw, 84px) !important;
     }
@@ -135,6 +144,9 @@ article h3 {
     .give-page-hero__title,
     .meet-page-hero__title,
     .launch-page-hero__title,
+    .sunday-page-hero__title,
+    .events-page-hero__title,
+    .visit-page-hero__title,
     .partner-page-hero__title {
         font-size: clamp(46px, 12vw, 66px) !important;
         line-height: 0.96 !important;
@@ -165,6 +177,9 @@ article h3 {
     .give-page-hero__title,
     .meet-page-hero__title,
     .launch-page-hero__title,
+    .sunday-page-hero__title,
+    .events-page-hero__title,
+    .visit-page-hero__title,
     .partner-page-hero__title {
         font-size: clamp(42px, 11.5vw, 54px) !important;
     }
