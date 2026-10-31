@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Спланируйте свой первый визит в Church on the Rock. Воскресенье · 1:00 PM · WoodsEdge Church, 25333 Gosling Rd, Spring, TX 77389 (EC1).">
+
+  <meta property="og:title" content="Спланировать визит — Church on the Rock">
+  <meta property="og:description" content="Будем рады встретить вас в это воскресенье!">
+  <meta property="og:image" content="images/partnership-community.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="images/cross.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link rel="stylesheet" href="typography-fix.css?v=3">
+
+  <title>Спланировать визит — Church on the Rock</title>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <!-- Header -->
+  <header class="site-header" data-header>
+    <div class="container">
+      <div class="site-header__inner">
+        <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
+          CHURCH ON THE <span>ROCK</span>
+        </a>
+
+        <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
+          <ul class="site-header__menu">
+            <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
+            <li><a class="site-header__link" href="about.html">О церкви</a></li>
+            <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
+            <li><a class="site-header__link" href="events.html">События</a></li>
+            <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
+            <li><a class="site-header__link" href="give.html">Поддержать</a></li>
+            <li><a class="site-header__link" href="partnership">Partnership</a></li>
+          </ul>
+
+          <div class="site-header__mobile-actions">
+            <a class="button button--accent" href="#visit-form">Спланировать визит</a>
+            <a class="button button--ghost" href="sunday.html">Что вас ждёт в воскресенье?</a>
+          </div>
+        </nav>
+
+        <div class="site-header__actions">
+          <a class="button button--accent button--compact" href="#visit-form" aria-current="page">
+            Спланировать визит
+          </a>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          data-menu-button
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="visit-page-hero" aria-labelledby="visit-page-title">
+      <div class="container">
+        <div class="visit-page-hero__inner">
+          <p class="eyebrow eyebrow--light">Plan your visit</p>
+          <h1 class="visit-page-hero__title" id="visit-page-title">
+            Спланировать <span>визит</span>
+          </h1>
+          <p class="visit-page-hero__lead">
+            Будем рады встретить вас!
+          </p>
+
+          <div class="visit-page-hero__text">
+            <p>
+              Если вы собираетесь прийти в Church on the Rock впервые, заполните
+              короткую форму ниже.
+            </p>
+            <p>
+              Регистрация не обязательна – вы всегда можете просто прийти.
+            </p>
+            <p>
+              Но если вы сообщите нам заранее, наша команда будет знать, что вы
+              придёте, сможет встретить вас, помочь сориентироваться и приготовит
+              для вас небольшой подарок.
+            </p>
+          </div>
+
+          <div class="hero__location">
+            <p class="hero__location-time">ВОСКРЕСЕНЬЕ · 1:00 PM</p>
+            <p class="hero__location-address">WoodsEdge Church · 25333 Gosling Rd, Spring, TX 77389</p>
+            <p class="hero__location-note">Equipping Center 1 (EC1) - следуйте указателям.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма планирования визита + экран СПАСИБО! -->
+    <section class="visit-form-section" id="visit-form" aria-labelledby="visit-form-title">
+      <div class="container">
+        <!-- Форма -->
+        <div class="visit-form-wrap visit-form-view" data-visit-form-view>
+          <header class="visit-form-header">
+            <p class="eyebrow eyebrow--light">Welcome Home</p>
+            <h2 class="section-title section-title--light" id="visit-form-title">
+              Спланируйте <span class="section-title__accent">визит</span>
+            </h2>
+          </header>
+
+          <form
+            class="registration-form"
+            name="plan-visit"
+            method="POST"
+            data-netlify="true"
+            data-visit-form
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="plan-visit">
+
+            <h3 class="visit-form-group-title visit-form-group-title--first form-field--full">
+              Как вас зовут?
+            </h3>
+            <div class="form-field form-field--full">
+              <label for="visit-name">Имя и фамилия</label>
+              <input
+                id="visit-name"
+                name="Имя и фамилия"
+                type="text"
+                autocomplete="name"
+                required
+              >
+              <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите ваше имя и фамилию</span>
+            </div>
+
+            <h3 class="visit-form-group-title form-field--full">
+              Как с вами лучше связаться?
+            </h3>
+            <div class="form-field">
+              <label for="visit-phone">Телефон</label>
+              <input
+                id="visit-phone"
+                name="Телефон"
+                type="tel"
+                autocomplete="tel"
+                required
+              >
+              <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите номер телефона</span>
+            </div>
+            <div class="form-field">
+              <label for="visit-email">Email (необязательно)</label>
+              <input
+                id="visit-email"
+                name="Email"
+                type="email"
+                autocomplete="email"
+              >
+              <span class="form-field__error" data-field-error hidden>Проверьте формат email</span>
+            </div>
+
+            <h3 class="visit-form-group-title form-field--full">
+              Сколько человек придёт вместе с вами?
+            </h3>
+            <div class="form-field">
+              <label for="visit-adults">Количество взрослых</label>
+              <input
+                id="visit-adults"
+                name="Количество взрослых"
+                type="number"
+                min="1"
+                max="20"
+                value="1"
+                required
+              >
+            </div>
+            <div class="form-field">
+              <label for="visit-kids">Количество детей</label>
+              <input
+                id="visit-kids"
+                name="Количество детей"
+                type="number"
+                min="0"
+                max="20"
+                value="0"
+              >
+            </div>
+
+            <h3 class="visit-form-group-title form-field--full">
+              Если вы придёте с детьми
+            </h3>
+            <div class="form-field form-field--full">
+              <label for="visit-kids-age">Возраст детей (необязательно)</label>
+              <input
+                id="visit-kids-age"
+                name="Возраст детей"
+                type="text"
+                placeholder="Например: 4 года и 8 лет"
+              >
+            </div>
+
+            <h3 class="visit-form-group-title form-field--full">
+              Хотите что-то сообщить нам заранее?
+            </h3>
+            <div class="form-field form-field--full">
+              <label for="visit-comment">Комментарий (необязательно)</label>
+              <textarea
+                id="visit-comment"
+                name="Комментарий"
+                rows="4"
+              ></textarea>
+            </div>
+
+            <p class="visit-form-alert form-field--full" data-visit-error role="alert" hidden>
+              Пожалуйста, заполните обязательные поля «Имя и фамилия» и «Телефон» выше, чтобы отправить анкету.
+            </p>
+
+            <button class="button button--accent button--large form-field--full" type="submit">
+              СПЛАНИРОВАТЬ ВИЗИТ
+            </button>
+          </form>
+        </div>
+
+        <!-- Экран благодарности «СПАСИБО!» -->
+        <div
+          class="visit-thanks"
+          id="visit-thanks"
+          data-visit-thanks
+          aria-live="polite"
+          hidden
+        >
+          <span class="visit-thanks__badge" aria-hidden="true">✓</span>
+          <h2 class="section-title section-title--light">
+            Спасибо!
+          </h2>
+
+          <p class="visit-thanks__lead">
+            Будем рады видеть вас в воскресенье.
+          </p>
+
+          <div class="visit-thanks__text">
+            <p>Мы получили вашу информацию и будем готовы встретить вас.</p>
+            <p>И да — небольшой подарок тоже будет ждать вас.</p>
+          </div>
+
+          <div class="final-cta__details">
+            <p class="final-cta__time">Воскресенье · 1:00 PM</p>
+            <p class="final-cta__address">WoodsEdge Church · 25333 Gosling Rd, Spring, TX 77389</p>
+            <p class="final-cta__room">Equipping Center 1 (EC1)</p>
+          </div>
+
+          <p class="visit-thanks__farewell">До встречи!</p>
+
+          <a class="button button--accent button--large" href="sunday.html">
+            Что вас ждёт в воскресенье?
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
+            CHURCH ON THE <span>ROCK</span>
+          </a>
+          <p class="site-footer__about" lang="en">
+            Different backgrounds. One family.
+          </p>
+          <div class="site-footer__socials" aria-label="Социальные сети">
+            <a href="https://www.facebook.com/church.thewoodlands.tx" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/cotr_thewoodlands/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <nav class="site-footer__column" aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__list">
+            <li><a href="sunday.html">Воскресенье</a></li>
+            <li><a href="about.html">О церкви</a></li>
+            <li><a href="pastor.html">Пастор</a></li>
+            <li><a href="events.html">События</a></li>
+            <li><a href="language-courses.html">Языковые курсы</a></li>
+            <li><a href="give.html">Поддержать</a></li>
+            <li><a href="plan-visit.html">Спланировать визит</a></li>
+            <li><a href="partnership">Partnership</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Встречи</h2>
+          <p class="site-footer__service-time" style="margin-top: 0; margin-bottom: 10px;">
+            Воскресенье · 1:00 PM
+          </p>
+          <address class="site-footer__address">
+            <p>WoodsEdge Church</p>
+            <p>25333 Gosling Rd</p>
+            <p>Spring, TX 77389</p>
+            <p>Equipping Center 1 (EC1)</p>
+          </address>
+        </div>
+
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Контакты</h2>
+          <ul class="site-footer__list">
+            <li><a href="tel:+14099990935">409-999-0935</a></li>
+            <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
+            <li><a href="https://cotrchurch.org" target="_blank" rel="noopener noreferrer">cotrchurch.org</a></li>
+          </ul>
+          <a class="site-footer__give" href="give.html">Поддержать служение</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="site-footer__legal">
+          <p>© <span data-current-year>2026</span> Church on the Rock. Все права защищены.</p>
+          <a href="#top">Наверх ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js?v=20261031-1" defer></script>
+</body>
+</html>

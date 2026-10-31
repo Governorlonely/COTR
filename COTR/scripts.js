@@ -3,7 +3,7 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-navigation]");
-const mobileBreakpoint = window.matchMedia("(max-width: 1080px)");
+const mobileBreakpoint = window.matchMedia("(max-width: 1180px)");
 
 function updateHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -157,6 +157,142 @@ if (connectForm) {
     if (intentHidden) intentHidden.value = "";
     if (intentPill) intentPill.hidden = true;
     if (messageField) messageField.setAttribute("placeholder", defaultPlaceholder);
+  });
+}
+
+function isPreviewSandboxHost() {
+  const host = window.location.hostname;
+  return (
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host.endsWith(".e2b.app")
+  );
+}
+
+function submitNetlifyFormInBackground(form) {
+  if (!form.hasAttribute("data-netlify") || isPreviewSandboxHost()) return;
+
+  const formData = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  }).catch(() => {});
+}
+
+function validateCustomForm(form, alertElement) {
+  let firstInvalidInput = null;
+  const inputs = form.querySelectorAll("input, textarea, select");
+
+  inputs.forEach((input) => {
+    const field = input.closest(".form-field");
+    if (!field) return;
+
+    const errorEl = field.querySelector("[data-field-error]");
+    const val = input.value.trim();
+    let isFieldInvalid = false;
+
+    if (input.hasAttribute("required") && !val) {
+      isFieldInvalid = true;
+    } else if (input.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      isFieldInvalid = true;
+    }
+
+    field.classList.toggle("is-invalid", isFieldInvalid);
+    if (errorEl) errorEl.hidden = !isFieldInvalid;
+
+    if (isFieldInvalid && !firstInvalidInput) {
+      firstInvalidInput = input;
+    }
+  });
+
+  if (alertElement) {
+    alertElement.hidden = !firstInvalidInput;
+  }
+
+  if (firstInvalidInput) {
+    firstInvalidInput.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => {
+      firstInvalidInput.focus({ preventScroll: true });
+    }, 320);
+    return false;
+  }
+
+  return true;
+}
+
+function bindLiveFieldClearing(form, alertElement) {
+  form.querySelectorAll("input, textarea, select").forEach((input) => {
+    input.addEventListener("input", () => {
+      const field = input.closest(".form-field");
+      if (!field || !field.classList.contains("is-invalid")) return;
+
+      const val = input.value.trim();
+      const stillInvalid =
+        (input.hasAttribute("required") && !val) ||
+        (input.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+
+      if (!stillInvalid) {
+        field.classList.remove("is-invalid");
+        const errorEl = field.querySelector("[data-field-error]");
+        if (errorEl) errorEl.hidden = true;
+        if (alertElement && !form.querySelector(".form-field.is-invalid")) {
+          alertElement.hidden = true;
+        }
+      }
+    });
+  });
+}
+
+// Форма «Спланировать визит» с переключением на экран благодарности «СПАСИБО!».
+const visitForm = document.querySelector("[data-visit-form]");
+if (visitForm) {
+  const formView = document.querySelector("[data-visit-form-view]");
+  const thanksView = document.querySelector("[data-visit-thanks]");
+  const alertEl = visitForm.querySelector("[data-visit-error]");
+
+  bindLiveFieldClearing(visitForm, alertEl);
+
+  function showVisitThanks(scrollIntoView = true) {
+    if (formView) formView.hidden = true;
+    if (thanksView) {
+      thanksView.hidden = false;
+      if (scrollIntoView) {
+        thanksView.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  }
+
+  function showVisitForm() {
+    if (thanksView) thanksView.hidden = true;
+    if (formView) {
+      formView.hidden = false;
+      formView.scrollIntoView({ behavior: "smooth", block: "start" });
+      const firstInput = visitForm.querySelector("input:not([type='hidden'])");
+      window.setTimeout(() => firstInput?.focus({ preventScroll: true }), 350);
+    }
+  }
+
+  if (
+    window.location.hash === "#thanks" ||
+    new URLSearchParams(window.location.search).get("thanks") === "1"
+  ) {
+    showVisitThanks(false);
+  }
+
+  document.querySelectorAll("a[href='#visit-form']").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      showVisitForm();
+    });
+  });
+
+  visitForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!validateCustomForm(visitForm, alertEl)) return;
+
+    submitNetlifyFormInBackground(visitForm);
+    showVisitThanks(true);
   });
 }
 

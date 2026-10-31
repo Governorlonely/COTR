@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Church on the Rock — церковь в Северном Хьюстоне для людей разных стран.">
+  <meta name="description" content="Church on the Rock — церковь в Северном Хьюстоне для людей разных стран. Воскресенье · 1:00 PM · WoodsEdge Church, Spring, TX.">
 
   <meta property="og:title" content="Church on the Rock">
   <meta property="og:description" content="Different backgrounds. One family.">
-  <meta property="og:image" content="images/4776EAF3-ED71-49EB-BBC4-26AC56836BD3.JPG">
+  <meta property="og:image" content="images/partnership-community.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="images/simple_cross_design_2.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/BebasNeueCyrillic.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" href="simple_cross_design_2.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261027-1">
-  <link rel="stylesheet" href="typography-fix.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link rel="stylesheet" href="typography-fix.css?v=3">
 
   <title>Church on the Rock</title>
 </head>
@@ -33,23 +33,24 @@
 
         <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
           <ul class="site-header__menu">
+            <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
             <li><a class="site-header__link" href="about.html">О церкви</a></li>
-            <li><a class="site-header__link" href="launch-team.html">Launch Team</a></li>
             <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
-            <li><a class="site-header__link" href="#courses">Курсы</a></li>
+            <li><a class="site-header__link" href="events.html">События</a></li>
+            <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
+            <li><a class="site-header__link" href="give.html">Поддержать</a></li>
             <li><a class="site-header__link" href="partnership">Partnership</a></li>
-            <li><a class="site-header__link" href="#contact">Контакты</a></li>
           </ul>
 
           <div class="site-header__mobile-actions">
-            <a class="button button--accent" href="partnership">Partner With Us</a>
-            <a class="button button--ghost" href="launch-team.html">Launch Team</a>
+            <a class="button button--accent" href="plan-visit.html">Спланировать визит</a>
+            <a class="button button--ghost" href="sunday.html">Что вас ждёт в воскресенье?</a>
           </div>
         </nav>
 
         <div class="site-header__actions">
-          <a class="button button--accent button--compact" href="partnership">
-            Partner With Us
+          <a class="button button--accent button--compact" href="plan-visit.html">
+            Спланировать визит
           </a>
         </div>
 
@@ -69,7 +70,7 @@
   </header>
 
   <main id="main-content">
-    <!-- 1. Hero -->
+    <!-- 01. Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__media" aria-hidden="true">
         <img src="images/lets%20meet.jpg" alt="" data-image-fallback>
@@ -86,9 +87,19 @@
               Настоящая жизнь начинается с отношений с Богом.
             </p>
 
+            <p class="hero__lead">
+              Church on the Rock - церковь в Северном Хьюстоне для людей разных стран.
+            </p>
+
+            <div class="hero__location">
+              <p class="hero__location-time">Воскресенье · 1:00 PM · WoodsEdge Church</p>
+              <p class="hero__location-address">25333 Gosling Rd, Spring, TX 77389</p>
+              <p class="hero__location-note">Equipping Center 1 (EC1) - следуйте указателям.</p>
+            </div>
+
             <div class="hero__actions">
-              <a class="button button--accent button--large" href="launch-team.html">
-                Присоединиться к Launch Team
+              <a class="button button--accent button--large" href="sunday.html">
+                Что вас ждёт в воскресенье?
               </a>
             </div>
           </div>
@@ -96,96 +107,57 @@
       </div>
     </section>
 
-    <!-- 2. Church on the Rock -->
-    <section class="rock" id="about" aria-labelledby="rock-title">
+    <!-- 02. Воскресенье -->
+    <section class="sunday-home" id="sunday" aria-labelledby="sunday-home-title">
       <div class="container">
-        <div class="rock__inner">
-          <header class="rock__header">
-            <p class="eyebrow">02 — About us</p>
-            <h2 class="section-title" id="rock-title">
-              Church on
-              <span class="section-title__accent section-title__accent--block">the Rock</span>
-            </h2>
-            <p class="section-subtitle">Different backgrounds. One family.</p>
-          </header>
-
-          <div class="rock__content">
-            <p class="section-text">
-              Мы развиваем церковь в Северном Хьюстоне для людей разных стран,
-              которых объединяют общий язык, похожий жизненный опыт и желание
-              найти духовный дом.
-            </p>
-          </div>
-
-          <div class="rock__actions">
-            <a class="button button--accent button--large" href="about.html">
-              Подробнее о церкви
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Launch Team -->
-    <section class="launch" id="launch-team" aria-labelledby="launch-title">
-      <div class="container">
-        <div class="launch__inner">
+        <div class="sunday-home__inner">
           <header class="section-header section-header--narrow">
-            <p class="eyebrow">03 — Serve together</p>
-            <h2 class="section-title" id="launch-title">
-              Launch <span class="section-title__accent">Team</span>
+            <p class="eyebrow">02 — Воскресенье</p>
+            <h2 class="section-title" id="sunday-home-title">
+              Воскресенье <span class="section-title__accent">вместе</span>
             </h2>
             <p class="section-subtitle">
-              Станьте частью команд, которые помогают развитию церкви.
+              Воскресенье – это время поклонения, молитвы, вдохновляющего
+              библейского послания и общения.
             </p>
           </header>
 
-          <div class="launch__grid">
-            <article class="team-card" data-mouse-glow>
-              <span class="team-card__number" aria-hidden="true">01</span>
-              <h3 class="team-card__title">Worship Team</h3>
-              <p class="team-card__text">Музыка и поклонение.</p>
+          <div class="sunday-home__grid">
+            <article class="sunday-home-card" data-mouse-glow>
+              <span class="sunday-home-card__number" aria-hidden="true">01</span>
+              <h3 class="sunday-home-card__title">Для всей семьи</h3>
+              <p class="sunday-home-card__text">
+                Во время встречи проходят программы для детей от младенцев до молодёжи.
+              </p>
             </article>
 
-            <article class="team-card" data-mouse-glow>
-              <span class="team-card__number" aria-hidden="true">02</span>
-              <h3 class="team-card__title">Welcome Team</h3>
-              <p class="team-card__text">Встреча и сопровождение гостей.</p>
+            <article class="sunday-home-card" data-mouse-glow>
+              <span class="sunday-home-card__number" aria-hidden="true">02</span>
+              <h3 class="sunday-home-card__title">Время встречи</h3>
+              <p class="sunday-home-card__text">
+                Продолжительность – около 1 часа 15 минут.
+              </p>
             </article>
 
-            <article class="team-card" data-mouse-glow>
-              <span class="team-card__number" aria-hidden="true">03</span>
-              <h3 class="team-card__title">Kids Team</h3>
-              <p class="team-card__text">Детское служение.</p>
-            </article>
-
-            <article class="team-card" data-mouse-glow>
-              <span class="team-card__number" aria-hidden="true">04</span>
-              <h3 class="team-card__title">Setup Team</h3>
-              <p class="team-card__text">
-                Подготовка пространства к мероприятиям и богослужениям.
+            <article class="sunday-home-card" data-mouse-glow>
+              <span class="sunday-home-card__number" aria-hidden="true">03</span>
+              <h3 class="sunday-home-card__title">Понятно каждому</h3>
+              <p class="sunday-home-card__text">
+                Основной язык – русский, с переводом на английский.
               </p>
             </article>
           </div>
 
-          <p class="launch__experience">Опыт не обязателен.</p>
-
-          <div class="launch__actions">
-            <a class="button button--accent button--large" href="launch-team.html">
-              Присоединиться к Launch Team
+          <div class="sunday-home__actions">
+            <a class="button button--accent button--large" href="plan-visit.html">
+              Спланировать визит
             </a>
           </div>
-
-          <aside class="launch__note">
-            <strong>Team Night проходит регулярно.</strong>
-            После регистрации мы свяжемся с вами и пригласим на ближайшую
-            встречу команды.
-          </aside>
         </div>
       </div>
     </section>
 
-    <!-- 4. Sergei and Nina -->
+    <!-- 03. Давайте познакомимся! -->
     <section class="founders" id="pastors" aria-labelledby="founders-title">
       <div class="container">
         <div class="founders__inner">
@@ -201,144 +173,196 @@
           </div>
 
           <div class="founders__content">
-            <p class="eyebrow">04 — Meet the pastors</p>
+            <p class="eyebrow">03 — Пасторы</p>
             <h2 class="section-title" id="founders-title">
-              Meet Sergei
-              <span class="section-title__accent section-title__accent--block">&amp; Nina</span>
+              Давайте
+              <span class="section-title__accent section-title__accent--block">познакомимся!</span>
             </h2>
 
-            <p class="founders__lead">Познакомьтесь с Сергеем и Ниной Гороховыми</p>
+            <p class="founders__lead">Сергей и Нина Гороховы</p>
 
             <div class="founders__text">
               <p>
-                Сергей и Нина более 20 лет помогают людям строить крепкие семьи,
-                возрастать в вере и находить своё предназначение.
+                Более 20 лет мы помогаем людям находить веру, направление и своё
+                место в жизни, а также участвуем в развитии церквей и сообществ.
               </p>
               <p>
-                Сегодня они развивают церковь в Северном Хьюстоне, объединяя
-                людей разных стран в одну духовную семью.
+                Мы женаты уже 25 лет, у нас трое детей. За эти годы мы особенно
+                убедились, насколько важны настоящие отношения, поддержка и место,
+                где тебя знают и принимают.
+              </p>
+              <p>
+                Добро пожаловать в Church on the Rock — место в Северном Хьюстоне,
+                где можно найти своё сообщество и почувствовать себя как дома.
               </p>
               <p class="founders__highlight">
-                Они будут рады познакомиться с вами лично.
+                Будем рады познакомиться с вами лично.
               </p>
             </div>
 
             <a class="button button--accent button--large" href="pastor.html">
-              Договориться о встрече
+              Познакомиться лично
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. 30 Steps to Success -->
-    <section class="success-course" id="courses" aria-labelledby="success-title">
+    <!-- 04. О нашей церкви -->
+    <section class="about-mission" id="about" aria-labelledby="about-home-title">
       <div class="container">
-        <div class="success-course__inner">
-          <header class="success-course__header">
-            <p class="eyebrow eyebrow--light">05 — Summer course</p>
-            <h2 class="section-title section-title--light" id="success-title">
-              30 шагов
-              <span class="section-title__accent section-title__accent--block">к успеху</span>
-            </h2>
-            <p class="success-course__lead">
-              История Иосифа, которая меняет взгляд на жизнь.
-            </p>
-          </header>
-
-          <div class="success-course__content">
-            <div class="success-course__text">
-              <p>
-                В течение этого лета проходит 10-недельный курс, основанный на
-                истории Иосифа — человека, которого предали родные, продали в
-                рабство и несправедливо заключили в тюрьму, но который впоследствии
-                стал вторым человеком самой могущественной страны своего времени.
-              </p>
-              <p>
-                Каждая встреча помогает увидеть, как Бог действует даже в самых
-                сложных обстоятельствах и готовит нас к будущему, которое часто
-                превосходит наши ожидания.
-              </p>
-            </div>
-
-            <div class="success-course__schedule">
-              <p class="success-course__schedule-title">Каждое воскресенье</p>
-              <p>🕒 <strong>3:00 PM</strong></p>
-              <p>📍 <strong>105 FM 1488 Rd, Conroe, TX 77384</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Language courses -->
-    <section class="languages" id="language-courses" aria-labelledby="languages-title">
-      <div class="container">
-        <div class="languages__inner">
+        <div class="about-mission__inner">
           <header class="section-header section-header--narrow">
-            <p class="eyebrow">06 — Learn together</p>
-            <h2 class="section-title" id="languages-title">
-              Языковые <span class="section-title__accent">курсы</span>
+            <p class="eyebrow eyebrow--light">04 — О нашей церкви</p>
+            <h2 class="section-title section-title--light" id="about-home-title">
+              О нашей <span class="section-title__accent">церкви</span>
             </h2>
+            <p class="about-mission__statement" lang="en">
+              Different backgrounds. One family.
+            </p>
+            <div class="about-mission__intro">
+              <p>
+                Мы развиваем церковь в Северном Хьюстоне для людей разных стран.
+              </p>
+              <p>
+                Мы ценим культурное разнообразие и создаём открытое сообщество, где
+                можно строить настоящие отношения, возрастать в вере и чувствовать
+                себя как дома.
+              </p>
+            </div>
           </header>
 
-          <div class="languages__grid">
-            <article class="language-card" data-mouse-glow>
-              <span class="language-card__label">For adults</span>
-              <h3 class="language-card__title">English Club</h3>
-              <p>Разговорный английский в дружелюбной атмосфере.</p>
-              <p>Группы для начинающих и продолжающих.</p>
+          <h3 class="about-mission__vision-title">Мы видим церковь как...</h3>
+
+          <div class="about-mission__grid">
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
+              <span class="about-mission-card__number" aria-hidden="true">01</span>
+              <h3 class="about-mission-card__title">Место вдохновения</h3>
+              <p class="about-mission-card__text">
+                Вера, которая помогает видеть больше, мечтать смелее и жить своим призванием.
+              </p>
             </article>
 
-            <article class="language-card" data-mouse-glow>
-              <span class="language-card__label">For kids</span>
-              <h3 class="language-card__title">Russian &amp; Ukrainian Classes for Kids</h3>
-              <p>
-                Помогаем детям сохранить родной язык, культуру и свободное общение.
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
+              <span class="about-mission-card__number" aria-hidden="true">02</span>
+              <h3 class="about-mission-card__title">Место для всех</h3>
+              <p class="about-mission-card__text">
+                Сообщество, где каждый важен и принят — независимо от происхождения,
+                культуры или жизненного опыта.
+              </p>
+            </article>
+
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
+              <span class="about-mission-card__number" aria-hidden="true">03</span>
+              <h3 class="about-mission-card__title">Место роста</h3>
+              <p class="about-mission-card__text">
+                Возможность расти духовно, строить крепкую семью и развиваться во всех сферах жизни.
               </p>
             </article>
           </div>
 
-          <div class="languages__actions">
-            <a class="button button--accent button--large" href="language-courses.html">
-              Подробнее о языковых курсах
+          <div class="about-mission__actions">
+            <a class="button button--accent button--large" href="about.html">
+              Узнать больше о нашей церкви
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. Support -->
-    <section class="support" aria-labelledby="support-title">
+    <!-- 05. Ближайшие события -->
+    <section class="events-section" id="events" aria-labelledby="events-home-title">
+      <div class="container">
+        <div class="events-section__inner">
+          <header class="section-header section-header--narrow">
+            <p class="eyebrow">05 — Ближайшие события</p>
+            <h2 class="section-title" id="events-home-title">
+              Ближайшие <span class="section-title__accent">события</span>
+            </h2>
+            <p class="section-subtitle">Что происходит сейчас</p>
+          </header>
+
+          <div class="events-grid">
+            <article class="event-card" data-mouse-glow>
+              <span class="event-card__date">14 ноября</span>
+              <h3 class="event-card__title" lang="en">Women’s Gathering</h3>
+              <p class="event-card__text">
+                Вечер общения и вдохновения для женщин.
+              </p>
+            </article>
+
+            <article class="event-card" data-mouse-glow>
+              <span class="event-card__date">28 ноября</span>
+              <h3 class="event-card__title" lang="en">Thanksgiving Community Picnic</h3>
+              <p class="event-card__text">
+                Праздничная встреча для всей семьи и друзей.
+              </p>
+            </article>
+
+            <article class="event-card" data-mouse-glow>
+              <span class="event-card__date">12 декабря</span>
+              <h3 class="event-card__title" lang="en">Men’s Gathering</h3>
+              <p class="event-card__text">
+                Время для общения, поддержки и мужского сообщества.
+              </p>
+            </article>
+
+            <article class="event-card" data-mouse-glow>
+              <span class="event-card__date">20 декабря</span>
+              <h3 class="event-card__title" lang="en">Christmas Celebration</h3>
+              <p class="event-card__text">
+                Рождественская программа и праздничная встреча всей церкви.
+              </p>
+            </article>
+          </div>
+
+          <div class="events-section__actions">
+            <a class="button button--accent button--large" href="events.html">
+              Все события
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. Финальный CTA -->
+    <section class="support" aria-labelledby="final-cta-title">
       <div class="container">
         <div class="support__inner">
           <div class="support-card" data-mouse-glow>
             <div class="support-card__content">
-              <p class="eyebrow eyebrow--light">07 — Be part of the story</p>
-              <h2 class="section-title section-title--light" id="support-title">
-                Поддержать
-                <span class="section-title__accent section-title__accent--block">служение</span>
+              <p class="eyebrow eyebrow--light">06 — Будем рады встрече</p>
+              <h2 class="section-title section-title--light" id="final-cta-title" lang="en">
+                Welcome <span class="section-title__accent">Home</span>
               </h2>
               <p class="section-subtitle section-subtitle--light">
-                Если вы хотите стать частью этой истории и помочь развитию нашей
-                церкви в Северном Хьюстоне, вы можете поддержать наше служение.
+                Будем рады видеть вас в это воскресенье.
               </p>
-              <a class="button button--accent button--large" href="give.html">
-                Поддержать служение
-              </a>
+
+              <div class="final-cta__details">
+                <p class="final-cta__time">Воскресенье · 1:00 PM · WoodsEdge Church</p>
+                <p class="final-cta__address">25333 Gosling Rd, Spring, TX 77389</p>
+                <p class="final-cta__room">Equipping Center 1 (EC1)</p>
+              </div>
+
+              <div class="support-card__actions">
+                <a class="button button--accent button--large" href="plan-visit.html">
+                  СПЛАНИРОВАТЬ ВИЗИТ
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 8. Partner With Us -->
+    <!-- 07. Partner With Us (в конце главной страницы) -->
     <section class="partnership-home" id="partnership" aria-labelledby="partnership-home-title">
       <div class="container">
         <div class="partnership-home__inner">
           <div class="partnership-home__content">
-            <p class="eyebrow">08 — Partner with us</p>
-            <h2 class="section-title" id="partnership-home-title">
+            <p class="eyebrow">07 — Partner with us</p>
+            <h2 class="section-title" id="partnership-home-title" lang="en">
               Bringing Hope
               <span class="section-title__accent section-title__accent--block">to the Nations</span>
             </h2>
@@ -407,9 +431,8 @@
           <a class="logo" href="#top" aria-label="Church on the Rock — главная">
             CHURCH ON THE <span>ROCK</span>
           </a>
-          <p class="site-footer__about">
-            Different backgrounds. One family. Церковь в Северном Хьюстоне,
-            где люди находят духовный дом.
+          <p class="site-footer__about" lang="en">
+            Different backgrounds. One family.
           </p>
           <div class="site-footer__socials" aria-label="Социальные сети">
             <a
@@ -428,30 +451,38 @@
         <nav class="site-footer__column" aria-label="Навигация в подвале">
           <h2 class="site-footer__title">Навигация</h2>
           <ul class="site-footer__list">
+            <li><a href="sunday.html">Воскресенье</a></li>
             <li><a href="about.html">О церкви</a></li>
-            <li><a href="launch-team.html">Launch Team</a></li>
             <li><a href="pastor.html">Пастор</a></li>
+            <li><a href="events.html">События</a></li>
             <li><a href="language-courses.html">Языковые курсы</a></li>
+            <li><a href="give.html">Поддержать</a></li>
+            <li><a href="plan-visit.html">Спланировать визит</a></li>
             <li><a href="partnership">Partnership</a></li>
           </ul>
         </nav>
 
         <div class="site-footer__column">
           <h2 class="site-footer__title">Встречи</h2>
+          <p class="site-footer__service-time" style="margin-top: 0; margin-bottom: 10px;">
+            Воскресенье · 1:00 PM
+          </p>
           <address class="site-footer__address">
-            <p>105 FM 1488 Rd</p>
-            <p>Conroe, TX 77384</p>
+            <p>WoodsEdge Church</p>
+            <p>25333 Gosling Rd</p>
+            <p>Spring, TX 77389</p>
+            <p>Equipping Center 1 (EC1)</p>
           </address>
-          <p class="site-footer__service-time">Каждое воскресенье · 3:00 PM</p>
         </div>
 
         <div class="site-footer__column">
           <h2 class="site-footer__title">Контакты</h2>
           <ul class="site-footer__list">
-            <li><a href="/cdn-cgi/l/email-protection#2f5c4a5d484a466f4c405b5d014c4042"><span class="__cf_email__" data-cfemail="582b3d2a3f3d31183b372c2a763b3735">[email&#160;protected]</span></a></li>
             <li><a href="tel:+14099990935">409-999-0935</a></li>
+            <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
+            <li><a href="https://cotrchurch.org" target="_blank" rel="noopener noreferrer">cotrchurch.org</a></li>
           </ul>
-          <a class="site-footer__give" href="give.html">Поддержать служение</a>
+          <a class="site-footer__give" href="plan-visit.html">Спланировать визит</a>
         </div>
       </div>
     </div>
@@ -466,6 +497,6 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="scripts.js" defer></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a34e1fdd4809e4cf',t:'MTc4ODM2ODk4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script src="scripts.js?v=20261031-1" defer></script>
+</body>
 </html>

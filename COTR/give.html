@@ -11,8 +11,12 @@
   <meta property="og:type" content="website">
 
   <link rel="icon" href="images/cross.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/BebasNeueCyrillic.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link rel="stylesheet" href="typography-fix.css?v=3">
 
   <title>Поддержать служение — Church on the Rock</title>
 </head>
@@ -29,28 +33,28 @@
 
         <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
           <ul class="site-header__menu">
-            <li><a class="site-header__link" href="index.html">Главная</a></li>
+            <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
             <li><a class="site-header__link" href="about.html">О церкви</a></li>
-            <li><a class="site-header__link" href="lets-meet.html">Let’s Meet</a></li>
-            <li><a class="site-header__link" href="launch-team.html">Launch Team</a></li>
             <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
+            <li><a class="site-header__link" href="events.html">События</a></li>
             <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
             <li>
               <a class="site-header__link" href="give.html" aria-current="page">
                 Поддержать
               </a>
             </li>
+            <li><a class="site-header__link" href="partnership">Partnership</a></li>
           </ul>
 
           <div class="site-header__mobile-actions">
             <a class="button button--accent" href="#give-contact">Поддержать служение</a>
-            <a class="button button--ghost" href="lets-meet.html">Let’s Meet</a>
+            <a class="button button--ghost" href="plan-visit.html">Спланировать визит</a>
           </div>
         </nav>
 
         <div class="site-header__actions">
-          <a class="button button--accent button--compact" href="#give-contact">
-            Поддержать
+          <a class="button button--accent button--compact" href="plan-visit.html">
+            Спланировать визит
           </a>
         </div>
 
@@ -190,9 +194,8 @@
           <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
             CHURCH ON THE <span>ROCK</span>
           </a>
-          <p class="site-footer__about">
-            Different backgrounds. One family. Церковь в Северном Хьюстоне,
-            где люди находят духовный дом.
+          <p class="site-footer__about" lang="en">
+            Different backgrounds. One family.
           </p>
           <div class="site-footer__socials" aria-label="Социальные сети">
             <a href="https://www.facebook.com/church.thewoodlands.tx" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -203,29 +206,36 @@
         <nav class="site-footer__column" aria-label="Навигация в подвале">
           <h2 class="site-footer__title">Навигация</h2>
           <ul class="site-footer__list">
+            <li><a href="sunday.html">Воскресенье</a></li>
             <li><a href="about.html">О церкви</a></li>
-            <li><a href="lets-meet.html">Let’s Meet</a></li>
-            <li><a href="launch-team.html">Launch Team</a></li>
             <li><a href="pastor.html">Пастор</a></li>
+            <li><a href="events.html">События</a></li>
             <li><a href="language-courses.html">Языковые курсы</a></li>
+            <li><a href="give.html">Поддержать</a></li>
+            <li><a href="plan-visit.html">Спланировать визит</a></li>
             <li><a href="partnership">Partnership</a></li>
           </ul>
         </nav>
 
         <div class="site-footer__column">
           <h2 class="site-footer__title">Встречи</h2>
+          <p class="site-footer__service-time" style="margin-top: 0; margin-bottom: 10px;">
+            Воскресенье · 1:00 PM
+          </p>
           <address class="site-footer__address">
-            <p>105 FM 1488 Rd</p>
-            <p>Conroe, TX 77384</p>
+            <p>WoodsEdge Church</p>
+            <p>25333 Gosling Rd</p>
+            <p>Spring, TX 77389</p>
+            <p>Equipping Center 1 (EC1)</p>
           </address>
-          <p class="site-footer__service-time">Каждое воскресенье · 3:00 PM</p>
         </div>
 
         <div class="site-footer__column">
           <h2 class="site-footer__title">Контакты</h2>
           <ul class="site-footer__list">
-            <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
             <li><a href="tel:+14099990935">409-999-0935</a></li>
+            <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
+            <li><a href="https://cotrchurch.org" target="_blank" rel="noopener noreferrer">cotrchurch.org</a></li>
           </ul>
           <a class="site-footer__give" href="#give-contact">Поддержать служение</a>
         </div>
@@ -242,6 +252,6 @@
     </div>
   </footer>
 
-  <script src="scripts.js" defer></script>
+  <script src="scripts.js?v=20261031-1" defer></script>
 </body>
 </html>
