@@ -267,18 +267,52 @@ function isPreviewSandboxHost() {
   );
 }
 
-function submitNetlifyFormInBackground(form) {
-  if (!form.hasAttribute("data-netlify") || isPreviewSandboxHost()) return;
+const networkErrorByLang = {
+  ru: "Не удалось отправить форму. Пожалуйста, обновите страницу и попробуйте ещё раз или напишите на sergei@cotr.com.",
+  en: "Could not send the form right now. Please refresh the page and try again, or email sergei@cotr.com.",
+  uk: "Не вдалося надіслати форму. Будь ласка, оновіть сторінку та спробуйте ще раз або напишіть на sergei@cotr.com.",
+};
 
-  const formData = new FormData(form);
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  }).catch(() => {});
+function getNetworkErrorMessage() {
+  if (docLang.startsWith("en")) return networkErrorByLang.en;
+  if (docLang.startsWith("uk")) return networkErrorByLang.uk;
+  return networkErrorByLang.ru;
 }
 
-function validateCustomForm(form, alertElement) {
+async function submitNetlifyFormInBackground(form) {
+  if (isPreviewSandboxHost()) return true;
+
+  const formData = new FormData(form);
+  const params = new URLSearchParams();
+  const formName =
+    form.getAttribute("name") ||
+    String(formData.get("form-name") || "").trim();
+
+  if (formName) {
+    params.set("form-name", formName);
+  }
+
+  for (const [key, value] of formData.entries()) {
+    if (key === "form-name") continue;
+    if (typeof value === "string") {
+      params.append(key, value);
+    }
+  }
+
+  const response = await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: params.toString(),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Form submission failed with status ${response.status}`);
+  }
+
+  return true;
+}
+
+function validateCustomForm(form, alertElement, defaultAlertText = "") {
   let firstInvalidInput = null;
   const inputs = form.querySelectorAll("input, textarea, select");
 
@@ -305,6 +339,9 @@ function validateCustomForm(form, alertElement) {
   });
 
   if (alertElement) {
+    if (firstInvalidInput && defaultAlertText) {
+      alertElement.textContent = defaultAlertText;
+    }
     alertElement.hidden = !firstInvalidInput;
   }
 
@@ -348,6 +385,7 @@ if (visitForm) {
   const formView = document.querySelector("[data-visit-form-view]");
   const thanksView = document.querySelector("[data-visit-thanks]");
   const alertEl = visitForm.querySelector("[data-visit-error]");
+  const defaultAlertText = alertEl?.textContent.trim() || "";
 
   bindLiveFieldClearing(visitForm, alertEl);
 
@@ -385,12 +423,25 @@ if (visitForm) {
     });
   });
 
-  visitForm.addEventListener("submit", (event) => {
+  visitForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!validateCustomForm(visitForm, alertEl)) return;
+    if (!validateCustomForm(visitForm, alertEl, defaultAlertText)) return;
 
-    submitNetlifyFormInBackground(visitForm);
-    showVisitThanks(true);
+    const submitBtn = visitForm.querySelector("button[type='submit']");
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      await submitNetlifyFormInBackground(visitForm);
+      if (alertEl) alertEl.hidden = true;
+      showVisitThanks(true);
+    } catch (_) {
+      if (alertEl) {
+        alertEl.textContent = getNetworkErrorMessage();
+        alertEl.hidden = false;
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }
 
@@ -401,19 +452,32 @@ document.querySelectorAll("[data-ajax-form]").forEach((form) => {
   const formView = container?.querySelector("[data-ajax-form-view]");
   const thanksView = container?.querySelector("[data-ajax-thanks]");
   const alertEl = form.querySelector("[data-form-alert]");
+  const defaultAlertText = alertEl?.textContent.trim() || "";
 
   bindLiveFieldClearing(form, alertEl);
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!validateCustomForm(form, alertEl)) return;
+    if (!validateCustomForm(form, alertEl, defaultAlertText)) return;
 
-    submitNetlifyFormInBackground(form);
+    const submitBtn = form.querySelector("button[type='submit']");
+    if (submitBtn) submitBtn.disabled = true;
 
-    if (formView) formView.hidden = true;
-    if (thanksView) {
-      thanksView.hidden = false;
-      thanksView.scrollIntoView({ behavior: "smooth", block: "center" });
+    try {
+      await submitNetlifyFormInBackground(form);
+      if (alertEl) alertEl.hidden = true;
+      if (formView) formView.hidden = true;
+      if (thanksView) {
+        thanksView.hidden = false;
+        thanksView.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } catch (_) {
+      if (alertEl) {
+        alertEl.textContent = getNetworkErrorMessage();
+        alertEl.hidden = false;
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 });
