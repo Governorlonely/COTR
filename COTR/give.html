@@ -3,22 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Поддержать служение Church on the Rock в Северном Хьюстоне.">
+  <meta name="description" content="Станьте частью того, что мы делаем вместе: молитвенная поддержка, волонтёрство, финансовая поддержка и партнёрство.">
+  <link rel="alternate" hreflang="ru" href="https://cotrchurch.org/give.html">
+  <link rel="alternate" hreflang="en" href="https://cotrchurch.org/en/give.html">
+  <link rel="alternate" hreflang="uk" href="https://cotrchurch.org/ua/give.html">
 
-  <meta property="og:title" content="Поддержать служение — Church on the Rock">
-  <meta property="og:description" content="Станьте частью истории Church on the Rock.">
-  <meta property="og:image" content="images/community.png">
+  <meta property="og:title" content="Поддержать — Church on the Rock">
+  <meta property="og:description" content="Станьте частью того, что мы делаем вместе: молитвенная поддержка, волонтёрство, финансовая поддержка и партнёрство.">
+  <meta property="og:image" content="images/partnership-community.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="images/cross.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      if (document.referrer && document.referrer.indexOf(location.host) !== -1) return;
+      try {
+        var target = localStorage.getItem("cotr_lang");
+        if (!target) {
+          var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          for (var i = 0; i < list.length; i++) {
+            var code = String(list[i] || "").toLowerCase();
+            if (code.indexOf("uk") === 0) { target = "ua"; break; }
+            if (code.indexOf("ru") === 0 || code.indexOf("be") === 0) { target = "ru"; break; }
+            if (code.indexOf("en") === 0) { target = "en"; break; }
+          }
+          if (!target) target = "en";
+        }
+        if (target !== "en" && target !== "ua") return;
+        var file = location.pathname.split("/").pop() || "index.html";
+        if (!/\.html$/i.test(file)) file = "index.html";
+        var dest = file === "partnership-ru.html"
+          ? (target === "en" ? "partnership/" : "ua/partnership.html")
+          : (target + "/" + file);
+        location.replace(dest + location.search + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="simple_cross_design_2.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261104-2">
   <link rel="stylesheet" href="typography-fix.css?v=3">
 
-  <title>Поддержать служение — Church on the Rock</title>
+  <title>Поддержать — Church on the Rock</title>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -34,41 +62,54 @@
         <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
           <ul class="site-header__menu">
             <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
-            <li><a class="site-header__link" href="about.html">О церкви</a></li>
+            <li><a class="site-header__link" href="about.html">О нас</a></li>
             <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
             <li><a class="site-header__link" href="events.html">События</a></li>
             <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
-            <li>
-              <a class="site-header__link" href="give.html" aria-current="page">
-                Поддержать
-              </a>
-            </li>
-            <li><a class="site-header__link" href="partnership">Partnership</a></li>
+            <li><a class="site-header__link" href="give.html" aria-current="page">Поддержать</a></li>
+            <li><a class="site-header__link" href="partnership-ru.html">Партнерство</a></li>
           </ul>
 
           <div class="site-header__mobile-actions">
-            <a class="button button--accent" href="#give-contact">Поддержать служение</a>
-            <a class="button button--ghost" href="plan-visit.html">Спланировать визит</a>
+            <div class="lang-switch lang-switch--mobile-menu" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="give.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/give.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/give.html" data-set-lang="ua">UA</a>
+          </div>
+            <a class="button button--accent" href="plan-visit.html">СПЛАНИРОВАТЬ ВИЗИТ</a>
+            <a class="button button--ghost" href="sunday.html">Воскресенье</a>
           </div>
         </nav>
 
         <div class="site-header__actions">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="give.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/give.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/give.html" data-set-lang="ua">UA</a>
+          </div>
           <a class="button button--accent button--compact" href="plan-visit.html">
-            Спланировать визит
+            СПЛАНИРОВАТЬ ВИЗИТ
           </a>
         </div>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Открыть меню"
-          aria-expanded="false"
-          data-menu-button
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="site-header__mobile-controls">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="give.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/give.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/give.html" data-set-lang="ua">UA</a>
+          </div>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            data-menu-button
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -78,108 +119,149 @@
     <section class="give-page-hero" aria-labelledby="give-page-title">
       <div class="container">
         <div class="give-page-hero__inner">
-          <p class="eyebrow eyebrow--light">Be part of the story</p>
-          <h1 class="give-page-hero__title" id="give-page-title">
-            Поддержать <span>служение</span>
-          </h1>
-          <p class="give-page-hero__subtitle">
-            Если вы хотите стать частью этой истории и помочь развитию нашей
-            церкви в Северном Хьюстоне, вы можете поддержать наше служение.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Почему это важно -->
-    <section class="give-intro" aria-labelledby="give-intro-title">
-      <div class="container">
-        <div class="give-intro__inner">
-          <header class="give-intro__header">
-            <p class="eyebrow">Together we can do more</p>
-            <h2 class="section-title" id="give-intro-title">
-              Станьте частью
-              <span class="section-title__accent section-title__accent--block">этой истории</span>
-            </h2>
-          </header>
-
-          <div class="give-intro__content">
-            <p class="give-intro__lead">
-              Ваша поддержка помогает нам развивать церковь, проводить встречи и
-              создавать пространство, где люди могут находить духовный дом,
-              поддержку и настоящих друзей.
-            </p>
-            <p>
-              Любая сумма имеет значение. Вы можете поддержать служение один раз
-              или участвовать регулярно — так, как вам удобно.
-            </p>
+          <p class="eyebrow eyebrow--light" lang="en">Together in mission</p>
+          <h1 class="give-page-hero__title" id="give-page-title">Поддержка</h1>
+          <p class="give-page-hero__subtitle">Станьте частью того, что мы делаем вместе.</p>
+          <div class="give-page-hero__text">
+            <p>Church on the Rock развивается благодаря людям, которые молятся, служат, используют свои способности и помогают финансово.</p>
+            <p>Есть разные способы поддержать служение — выберите тот, который подходит вам.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Способы участия -->
-    <section class="give-options" aria-labelledby="give-options-title">
+    <!-- 4 Ways to Support -->
+    <section class="give-options" aria-labelledby="give-options-heading">
       <div class="container">
+        <h2 class="visually-hidden" id="give-options-heading">Поддержка</h2>
         <div class="give-options__inner">
-          <header class="section-header section-header--narrow">
-            <p class="eyebrow">Ways to give</p>
-            <h2 class="section-title" id="give-options-title">
-              Как можно <span class="section-title__accent">поддержать</span>
-            </h2>
-          </header>
-
           <div class="give-options__grid">
             <article class="give-option-card" data-mouse-glow>
               <span class="give-option-card__number" aria-hidden="true">01</span>
-              <h3 class="give-option-card__title">Разовая поддержка</h3>
-              <p class="give-option-card__text">
-                Вы можете сделать разовое пожертвование на любую удобную для вас сумму.
-              </p>
+              <h2 class="give-option-card__title">Молитвенная поддержка</h2>
+              <p class="give-option-card__text">Молитесь вместе с нами о людях, семьях и развитии церкви в Северном Хьюстоне.</p>
+              <p class="give-option-card__text">Мы верим, что всё начинается с молитвы. Вы можете получать наши молитвенные нужды и поддерживать служение там, где находитесь.</p>
+              <div class="give-option-card__action">
+                <a class="button button--accent" href="#give-contact" data-give-intent="prayer">Молиться вместе</a>
+              </div>
             </article>
 
             <article class="give-option-card" data-mouse-glow>
               <span class="give-option-card__number" aria-hidden="true">02</span>
-              <h3 class="give-option-card__title">Регулярная поддержка</h3>
-              <p class="give-option-card__text">
-                Регулярное участие помогает планировать развитие служения и будущие проекты.
-              </p>
+              <h2 class="give-option-card__title">Волонтёрство</h2>
+              <p class="give-option-card__text">Используйте своё время, опыт и способности, чтобы служить людям вместе с нами.</p>
+              <p class="give-option-card__text">Есть много способов стать частью команды — помогать во время воскресных встреч, событий и других программ церкви.</p>
+              <div class="give-option-card__action">
+                <a class="button button--accent" href="#give-contact" data-give-intent="volunteer">Присоединиться к команде</a>
+              </div>
+            </article>
+
+            <article class="give-option-card" data-mouse-glow>
+              <span class="give-option-card__number" aria-hidden="true">03</span>
+              <h2 class="give-option-card__title">Финансовая поддержка</h2>
+              <p class="give-option-card__text">Ваше пожертвование помогает нам проводить встречи, развивать программы и создавать пространство, где люди находят веру, друзей и поддержку.</p>
+              <p class="give-option-card__text">Вы можете поддержать служение любой суммой — каждое участие имеет значение.</p>
+              <div class="give-option-card__action">
+                <a class="button button--accent" href="https://give.tithe.ly/?formId=989cb8e1-6864-11ee-90fc-1260ab546d11&amp;fundId=e8dbc7b5-a7bb-4346-8327-2a49c1058132&amp;locationId=44c3a951-4047-49c7-b81e-08f334571808" target="_blank" rel="noopener noreferrer">Поддержать служение</a>
+              </div>
+            </article>
+
+            <article class="give-option-card" data-mouse-glow>
+              <span class="give-option-card__number" aria-hidden="true">04</span>
+              <h2 class="give-option-card__title">Партнёрство</h2>
+              <p class="give-option-card__text">Станьте постоянным партнёром Church on the Rock и помогайте нам развивать служение на долгосрочной основе.</p>
+              <p class="give-option-card__text">Партнёрство — это регулярная поддержка и участие в том, что Бог делает через нашу церковь и служение людям.</p>
+              <div class="give-option-card__action">
+                <a class="button button--accent" href="partnership-ru.html">Стать партнёром</a>
+              </div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Контакт для поддержки -->
+    <!-- Prayer & Volunteering Form -->
     <section class="give-contact" id="give-contact" aria-labelledby="give-contact-title">
       <div class="container">
         <div class="give-contact__inner" data-mouse-glow>
           <div class="give-contact__content">
-            <p class="eyebrow eyebrow--light">Thank you</p>
+            <p class="eyebrow eyebrow--light" lang="en">Connect with us</p>
             <h2 class="section-title section-title--light" id="give-contact-title">
-              Спасибо за ваше
-              <span class="section-title__accent section-title__accent--block">участие</span>
+              Напишите <span class="section-title__accent">нам</span>
             </h2>
-            <p class="section-subtitle section-subtitle--light">
-              Напишите нам, и мы отправим актуальные реквизиты и ответим на вопросы
-              о поддержке служения.
-            </p>
+            <p class="section-subtitle section-subtitle--light">Оставьте свои контакты, чтобы получать молитвенные нужды церкви или присоединиться к команде волонтёров.</p>
 
-            <div class="give-contact__actions">
-              <a
-                class="button button--accent button--large"
-                href="mailto:sergei@cotr.com?subject=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D1%81%D0%BB%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5&amp;body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%0A%0A%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D1%81%D0%BB%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D1%8B.%0A%0A%D0%98%D0%BC%D1%8F%3A%0A%D0%A2%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%3A"
-              >
-                Получить реквизиты
-              </a>
-              <a class="give-contact__phone" href="tel:+14099990935">
-                📞 409-999-0935
-              </a>
+            <div data-ajax-container>
+              <div class="inline-ajax-form-wrap" data-ajax-form-view>
+                <form
+                  class="registration-form"
+                  name="give-support"
+                  method="POST"
+                  data-netlify="true"
+                  data-ajax-form
+                  data-give-form
+                  novalidate
+                >
+                  <input type="hidden" name="form-name" value="give-support">
+                  <input type="hidden" name="Language" value="RU">
+                  <input type="hidden" name="Topic" value="" data-intent-input>
+
+                  <div class="partner-intent-pill form-field--full" data-intent-pill hidden>
+                    <span data-intent-label></span>
+                    <button
+                      class="partner-intent-pill__reset"
+                      type="button"
+                      aria-label="Clear selected topic"
+                      data-intent-reset
+                    >
+                      ×
+                    </button>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="give-name">Ваше имя</label>
+                    <input id="give-name" name="Name" type="text" autocomplete="name" required>
+                    <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите имя</span>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="give-contact-input">Email или телефон</label>
+                    <input id="give-contact-input" name="Contact" type="text" required>
+                    <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите email или телефон</span>
+                  </div>
+
+                  <div class="form-field form-field--full">
+                    <label for="give-comment">Сообщение (необязательно)</label>
+                    <textarea id="give-comment" name="Message" rows="3"></textarea>
+                  </div>
+
+                  <p class="visit-form-alert form-field--full" data-form-alert role="alert" hidden>
+                    Пожалуйста, укажите ваше имя и email или телефон для связи.
+                  </p>
+
+                  <button class="button button--accent button--large form-field--full" type="submit">
+                    Отправить
+                  </button>
+                </form>
+              </div>
+
+              <div class="visit-thanks visit-thanks--compact" data-ajax-thanks aria-live="polite" hidden>
+                <span class="visit-thanks__badge" aria-hidden="true">✓</span>
+                <h3 class="section-title section-title--light">Спасибо!</h3>
+                <p class="visit-thanks__lead">Мы получили ваше сообщение.</p>
+                <div class="visit-thanks__text">
+                  <p>Свяжемся с вами в ближайшее время. Спасибо за ваше сердце и участие в жизни церкви!</p>
+                </div>
+              </div>
             </div>
 
-            <p class="direct-email">
-              Или напишите напрямую:
-              <a href="mailto:sergei@cotr.com">sergei@cotr.com</a>
-            </p>
+            <div class="inline-ajax-alt">
+              <a class="give-contact__phone" href="tel:+14099990935">📞 409-999-0935</a>
+              <p class="direct-email">
+                Почта:
+                <a href="mailto:sergei@cotr.com">sergei@cotr.com</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -207,13 +289,13 @@
           <h2 class="site-footer__title">Навигация</h2>
           <ul class="site-footer__list">
             <li><a href="sunday.html">Воскресенье</a></li>
-            <li><a href="about.html">О церкви</a></li>
+            <li><a href="about.html">О нас</a></li>
             <li><a href="pastor.html">Пастор</a></li>
             <li><a href="events.html">События</a></li>
             <li><a href="language-courses.html">Языковые курсы</a></li>
             <li><a href="give.html">Поддержать</a></li>
             <li><a href="plan-visit.html">Спланировать визит</a></li>
-            <li><a href="partnership">Partnership</a></li>
+            <li><a href="partnership-ru.html">Партнерство</a></li>
           </ul>
         </nav>
 
@@ -237,7 +319,7 @@
             <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
             <li><a href="https://cotrchurch.org" target="_blank" rel="noopener noreferrer">cotrchurch.org</a></li>
           </ul>
-          <a class="site-footer__give" href="#give-contact">Поддержать служение</a>
+          <a class="site-footer__give" href="plan-visit.html">Спланировать визит</a>
         </div>
       </div>
     </div>
@@ -252,6 +334,6 @@
     </div>
   </footer>
 
-  <script src="scripts.js?v=20261031-1" defer></script>
+  <script src="scripts.js?v=20261104-2" defer></script>
 </body>
 </html>

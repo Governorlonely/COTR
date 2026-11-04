@@ -2664,7 +2664,7 @@ button {
     }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1240px) {
     .site-header__inner,
     .site-header.is-scrolled .site-header__inner {
         height: 82px;
@@ -2672,6 +2672,12 @@ button {
 
     .site-header__actions {
         display: none;
+    }
+
+    .site-header__mobile-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .menu-toggle {
@@ -4779,7 +4785,10 @@ article h3 {
 }
 
 .form-field__error[hidden],
-.visit-form-alert[hidden] {
+.visit-form-alert[hidden],
+[data-ajax-form-view][hidden],
+[data-ajax-thanks][hidden],
+[data-pastor-connect-wrap][hidden] {
     display: none !important;
 }
 
@@ -4793,6 +4802,183 @@ article h3 {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
+}
+
+.inline-ajax-form-wrap {
+    max-width: 720px;
+    margin: 38px auto 0;
+    text-align: left;
+}
+
+.inline-ajax-alt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 22px;
+    margin-top: 26px;
+}
+
+.inline-ajax-alt .direct-email {
+    margin-top: 0;
+}
+
+.visit-thanks--compact {
+    max-width: 680px;
+    margin-top: 34px;
+    padding: clamp(34px, 5vw, 52px) clamp(24px, 4vw, 44px);
+}
+
+.partner-connect .visit-thanks {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Header container & 3-language switcher (RU / EN / UA) */
+.site-header > .container {
+    width: min(1340px, calc(100% - 36px));
+}
+
+.site-header__actions {
+    gap: 12px;
+}
+
+.site-header__mobile-controls {
+    display: none;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+}
+
+.lang-switch__link {
+    display: inline-flex;
+    min-width: 30px;
+    height: 26px;
+    padding-inline: 7px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.68);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+            color var(--transition),
+            background-color var(--transition),
+            border-color var(--transition);
+}
+
+.lang-switch__link:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switch__link[aria-current="true"] {
+    color: var(--color-white);
+    background: rgba(220, 120, 40, 0.28);
+    border-color: rgba(220, 120, 40, 0.6);
+}
+
+.lang-switch--mobile-menu {
+    align-self: center;
+    margin-bottom: 6px;
+}
+
+@media (max-width: 1360px) and (min-width: 1241px) {
+    .site-header__inner {
+        gap: 10px;
+    }
+
+    .site-header__link {
+        padding: 8px 8px;
+        font-size: 11px;
+    }
+
+    .site-header__actions .button--compact {
+        padding: 10px 14px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .site-header__mobile-controls {
+        position: relative;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-header__mobile-controls .lang-switch {
+        padding: 2px;
+    }
+
+    .site-header__mobile-controls .lang-switch__link {
+        min-width: 25px;
+        height: 24px;
+        padding-inline: 5px;
+        font-size: 9.5px;
+    }
+}
+
+/* Updated Give / Support 4-card grid */
+.give-option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.give-option-card__text + .give-option-card__text {
+    margin-top: 12px;
+}
+
+.give-option-card__action {
+    margin-top: auto;
+    padding-top: 28px;
+}
+
+.give-page-hero__text {
+    max-width: 780px;
+    margin-top: 18px;
+}
+
+.give-page-hero__text p {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(16px, 1.55vw, 19px);
+    line-height: 1.75;
+}
+
+/* Larger "Sign up for updates" link in Partnership Stay Connected */
+.partner-updates .partner-text-link {
+    margin-top: 6px;
+    padding-bottom: 5px;
+    border-bottom-width: 2px;
+    font-size: clamp(16px, 1.55vw, 19px);
+    letter-spacing: 0.05em;
+}
+
+/* About page bottom CTA actions */
+.about-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 34px;
 }
 
 @media (max-width: 1024px) {

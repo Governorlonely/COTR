@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Помогите созидать церковную общину в Северном Хьюстоне, где люди из разных стран открывают жизнь во Христе, находят духовный дом и растут как Его ученики.">
+  <link rel="alternate" hreflang="ru" href="https://cotrchurch.org/partnership-ru.html">
+  <link rel="alternate" hreflang="en" href="https://cotrchurch.org/partnership">
+  <link rel="alternate" hreflang="uk" href="https://cotrchurch.org/ua/partnership.html">
+
+  <meta property="og:title" content="Партнерство — Church on the Rock">
+  <meta property="og:description" content="Помогите созидать церковную общину в Северном Хьюстоне, где люди из разных стран открывают жизнь во Христе, находят духовный дом и растут как Его ученики.">
+  <meta property="og:image" content="https://cotrchurch.org/images/partnership-community.jpg">
+  <meta property="og:type" content="website">
+
+  <script>
+    (function () {
+      if (document.referrer && document.referrer.indexOf(location.host) !== -1) return;
+      try {
+        var target = localStorage.getItem("cotr_lang");
+        if (!target) {
+          var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          for (var i = 0; i < list.length; i++) {
+            var code = String(list[i] || "").toLowerCase();
+            if (code.indexOf("uk") === 0) { target = "ua"; break; }
+            if (code.indexOf("ru") === 0 || code.indexOf("be") === 0) { target = "ru"; break; }
+            if (code.indexOf("en") === 0) { target = "en"; break; }
+          }
+          if (!target) target = "en";
+        }
+        if (target !== "en" && target !== "ua") return;
+        var file = location.pathname.split("/").pop() || "index.html";
+        if (!/\.html$/i.test(file)) file = "index.html";
+        var dest = file === "partnership-ru.html"
+          ? (target === "en" ? "partnership/" : "ua/partnership.html")
+          : (target + "/" + file);
+        location.replace(dest + location.search + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="simple_cross_design_2.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261104-2">
+  <link rel="stylesheet" href="typography-fix.css?v=3">
+
+  <title>Партнерство — Church on the Rock</title>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <!-- Header -->
+  <header class="site-header" data-header>
+    <div class="container">
+      <div class="site-header__inner">
+        <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
+          CHURCH ON THE <span>ROCK</span>
+        </a>
+
+        <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
+          <ul class="site-header__menu">
+            <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
+            <li><a class="site-header__link" href="about.html">О нас</a></li>
+            <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
+            <li><a class="site-header__link" href="events.html">События</a></li>
+            <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
+            <li><a class="site-header__link" href="give.html">Поддержать</a></li>
+            <li><a class="site-header__link" href="partnership-ru.html" aria-current="page">Партнерство</a></li>
+          </ul>
+
+          <div class="site-header__mobile-actions">
+            <div class="lang-switch lang-switch--mobile-menu" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="partnership-ru.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="partnership/" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/partnership.html" data-set-lang="ua">UA</a>
+          </div>
+            <a class="button button--accent" href="plan-visit.html">СПЛАНИРОВАТЬ ВИЗИТ</a>
+            <a class="button button--ghost" href="sunday.html">Воскресенье</a>
+          </div>
+        </nav>
+
+        <div class="site-header__actions">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="partnership-ru.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="partnership/" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/partnership.html" data-set-lang="ua">UA</a>
+          </div>
+          <a class="button button--accent button--compact" href="plan-visit.html">
+            СПЛАНИРОВАТЬ ВИЗИТ
+          </a>
+        </div>
+
+        <div class="site-header__mobile-controls">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="partnership-ru.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="partnership/" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/partnership.html" data-set-lang="ua">UA</a>
+          </div>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            data-menu-button
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 1. Hero: Partner With Us -->
+    <section class="partner-page-hero" aria-labelledby="partner-hero-title">
+      <div class="container">
+        <div class="partner-page-hero__inner">
+          <div class="partner-page-hero__content">
+            <p class="eyebrow eyebrow--light">ПАРТНЕРСТВО</p>
+            <h1 class="partner-page-hero__title" id="partner-hero-title">
+              НЕСЯ НАДЕЖДУ
+              <span>ЛЮДЯМ РАЗНЫХ СТРАН</span>
+            </h1>
+
+            <p class="partner-page-hero__lead">Помогите созидать церковную общину в Северном Хьюстоне, где люди из разных стран могут открыть для себя жизнь во Христе, обрести духовный дом и расти как Его ученики.</p>
+            <p class="partner-page-hero__question">Готовы ли вы рассмотреть возможность стать ежемесячным партнёром на ближайшие 12 месяцев?</p>
+
+            <div class="partner-page-hero__actions">
+              <a class="button button--accent button--large" href="#connect" data-partner-intent="monthly">
+                СТАТЬ ЕЖЕМЕСЯЧНЫМ ПАРТНЁРОМ
+              </a>
+              <a
+                class="partner-text-link partner-text-link--light"
+                href="https://give.tithe.ly/?formId=989cb8e1-6864-11ee-90fc-1260ab546d11&amp;fundId=e8dbc7b5-a7bb-4346-8327-2a49c1058132&amp;locationId=44c3a951-4047-49c7-b81e-08f334571808"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Сделать разовое пожертвование
+              </a>
+            </div>
+          </div>
+
+          <div class="partner-page-hero__media">
+            <img
+              src="images/partnership-community.jpg?v=2"
+              alt="Община Church on the Rock в Северном Хьюстоне"
+              data-image-fallback
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Help Our Church Grow & 2027 Budget -->
+    <section class="partner-budget" id="budget" aria-labelledby="budget-section-title">
+      <div class="container">
+        <header class="section-header section-header--narrow">
+          <h2 class="section-title" id="budget-section-title">
+            ПОМОГИТЕ ЦЕРКВИ <span class="section-title__accent">УКРЕПИТЬСЯ И ВЫРАСТИ</span>
+          </h2>
+          <p class="section-subtitle">В течение следующих двух лет наша цель — сформировать крепкую, финансово устойчивую поместную церковь в Северном Хьюстоне, где местные пожертвования будут покрывать всё большую часть текущих нужд.</p>
+        </header>
+
+        <div class="partner-budget__card">
+          <h3 class="partner-budget__title">БЮДЖЕТ СЛУЖЕНИЯ В СЕВЕРНОМ ХЬЮСТОНЕ НА 2027 ГОД</h3>
+
+          <div class="budget-table-wrap">
+            <table class="budget-table">
+              <thead>
+                <tr>
+                  <th scope="col">Финансирование</th>
+                  <th scope="col">В год</th>
+                  <th scope="col">В месяц</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Планируемый бюджет</td>
+                  <td>$150,000</td>
+                  <td>$12,500</td>
+                </tr>
+                <tr>
+                  <td>Текущая поддержка*</td>
+                  <td>$54,000</td>
+                  <td>$4,500</td>
+                </tr>
+                <tr class="budget-table__row--highlight">
+                  <td>Необходимая дополнительная поддержка*</td>
+                  <td>$96,000</td>
+                  <td>$8,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="budget-progress" role="group" aria-label="36% уже покрывается, 64% ещё необходимо">
+            <div class="budget-progress__track" aria-hidden="true">
+              <div class="budget-progress__fill" style="width: 36%;"></div>
+            </div>
+            <p class="budget-progress__caption">
+              <span class="budget-progress__badges">
+                <span><i class="budget-progress__dot budget-progress__dot--supported" aria-hidden="true"></i>36% уже покрывается</span>
+                <span aria-hidden="true">·</span>
+                <span><i class="budget-progress__dot budget-progress__dot--needed" aria-hidden="true"></i>64% ещё необходимо</span>
+              </span>
+            </p>
+          </div>
+
+          <p class="partner-budget__footnote">*Текущая поддержка и оставшаяся потребность указаны ориентировочно. Поддержка включает $3,000 в месяц от партнёров служения и около $1,500 от пожертвований поместной общины. Годовые суммы отражают текущий уровень участия.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. What Your Partnership Supports -->
+    <section class="partner-supports" id="supports" aria-labelledby="supports-title">
+      <div class="container">
+        <div class="partner-supports__inner">
+          <header class="section-header section-header--narrow">
+            <h2 class="section-title" id="supports-title">
+              ЧТО ПОДДЕРЖИВАЕТ <span class="section-title__accent">ВАШЕ ПАРТНЁРСТВО</span>
+            </h2>
+            <p class="section-subtitle">Ваше участие поддерживает людей, программы и ресурсы, которые помогают церкви расти и служить обществу:</p>
+          </header>
+
+          <ul class="partner-supports__list">
+            <li>Воскресное поклонение, молитву и библейское учение.</li>
+            <li>Детское служение и семейные мероприятия.</li>
+            <li>Курс «Альфа», евангелизацию и открытые встречи для сообщества.</li>
+            <li>Малые группы ученичества и подготовку волонтёров.</li>
+            <li>Практическую заботу и помощь людям в нужде.</li>
+            <li>Обеспечение пасторской семьи, жильё и медицинскую страховку.</li>
+            <li>Аренду помещений, оборудование и ресурсы для служения.</li>
+          </ul>
+
+          <div class="partner-supports__footer">
+            <p class="partner-supports__closing">Ваше ежемесячное партнёрство даёт стабильную опору в этот ключевой период становления церкви.</p>
+            <a class="button button--accent button--large" href="#connect" data-partner-intent="monthly">
+              СТАТЬ ЕЖЕМЕСЯЧНЫМ ПАРТНЁРОМ
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Stay Connected -->
+    <section class="partner-updates" id="updates" aria-labelledby="stay-connected-title">
+      <div class="container">
+        <div class="partner-updates__card" data-mouse-glow>
+          <div class="partner-updates__content">
+            <h2 class="section-title section-title--light" id="stay-connected-title">
+              ОСТАВАЙТЕСЬ <span class="section-title__accent">НА СВЯЗИ</span>
+            </h2>
+            <p class="partner-updates__text">Получайте ежемесячные новости служения, свидетельства и молитвенные нужды, а также отчёты о том, как используется партнёрская поддержка.</p>
+            <p class="partner-updates__note">Вы можете подписаться на новости независимо от финансового участия.</p>
+            <a class="partner-text-link partner-text-link--light" href="#connect" data-partner-intent="updates">
+              Подписаться на новости →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Missions -->
+    <section class="partner-missions" id="missions" aria-labelledby="missions-title">
+      <div class="container">
+        <div class="partner-missions__inner">
+          <div class="partner-missions__content">
+            <p class="eyebrow">МИССИЯ.</p>
+            <h2 class="section-title" id="missions-title">
+              ОБУЧЕНИЕ ЛИДЕРОВ
+              <span class="section-title__accent section-title__accent--block">И НАСАЖДЕНИЕ ЦЕРКВЕЙ</span>
+            </h2>
+
+            <div class="partner-missions__text">
+              <p>Наряду с пасторским служением в Северном Хьюстоне пастор Сергей Горохов служит церквям в Казани, Йошкар-Оле и Чебоксарах (Поволжье) через наставничество пасторов, подготовку лидеров и основание новых общин.</p>
+              <p>В 2026 году начались регулярные воскресные богослужения новой церкви в Чебоксарах. Пастор Сергей продолжает поддерживать её развитие и укреплять действующие церкви в Казани и Йошкар-Оле.</p>
+              <p>Планы на 2027 год включают две миссионерские поездки для посещения церквей и проведения пасторских и лидерских конференций, а также запуск годичной онлайн-программы практической подготовки служителей совместно с местными командами.</p>
+            </div>
+
+            <aside class="partner-missions__separate">Пожертвования на это направление покрывают дорожные и операционные расходы миссионерского служения пастора Сергея и ведутся отдельно от бюджета церкви в Северном Хьюстоне.</aside>
+
+            <div class="partner-missions__actions">
+              <a class="button button--equal" href="#connect" data-partner-intent="missions">
+                ПОДДЕРЖАТЬ МИССИЮ
+              </a>
+              <a class="button button--equal" href="#connect" data-partner-intent="contact-sergei">
+                НАПИСАТЬ СЕРГЕЮ
+              </a>
+            </div>
+          </div>
+
+          <div class="partner-missions__media">
+            <img
+              src="images/missions-leadership.jpg?v=2"
+              alt="Пастор Сергей Горохов на лидерской конференции"
+              loading="lazy"
+              data-image-fallback
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Let's Connect -->
+    <section class="signup-section partner-connect" id="connect" aria-labelledby="connect-title">
+      <div class="container">
+        <div class="signup-section__inner">
+          <div class="signup-section__intro">
+            <h2 class="section-title section-title--light" id="connect-title">
+              СВЯЖИТЕСЬ <span class="section-title__accent">С НАМИ</span>
+            </h2>
+            <p>Мы будем рады ответить на ваши вопросы и обсудить, как вы или ваша церковь можете участвовать. Вы также можете поддержать нас молитвой, практической помощью или знакомством с теми, кому близко это видение.</p>
+
+            <div class="partner-contact-card">
+              <p class="partner-contact-card__title">ПАСТОРЫ СЕРГЕЙ И НИНА ГОРОХОВЫ</p>
+              <p class="partner-contact-card__line">
+                Email: <a href="mailto:sergei@cotr.com">sergei@cotr.com</a>
+              </p>
+              <p class="partner-contact-card__line">
+                Телефон: <a href="tel:+14099990935">409-999-0935</a>
+              </p>
+            </div>
+          </div>
+
+          <div data-ajax-container>
+            <div data-ajax-form-view>
+              <form
+                class="registration-form"
+                name="partnership-connect"
+                method="POST"
+                data-netlify="true"
+                data-ajax-form
+                data-partner-form
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="partnership-connect">
+                <input type="hidden" name="Language" value="RU">
+                <input type="hidden" name="Topic" value="" data-intent-input>
+
+                <div class="partner-intent-pill form-field--full" data-intent-pill hidden>
+                  <span data-intent-label></span>
+                  <button
+                    class="partner-intent-pill__reset"
+                    type="button"
+                    aria-label="Clear selected topic"
+                    data-intent-reset
+                  >
+                    ×
+                  </button>
+                </div>
+
+                <div class="form-field">
+                  <label for="connect-name">Ваше имя</label>
+                  <input id="connect-name" name="Name" type="text" autocomplete="name" required>
+                  <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите имя</span>
+                </div>
+
+                <div class="form-field">
+                  <label for="connect-email">Email</label>
+                  <input id="connect-email" name="Email" type="email" autocomplete="email" required>
+                  <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите корректный email</span>
+                </div>
+
+                <div class="form-field form-field--full">
+                  <label for="connect-message">Сообщение — необязательно</label>
+                  <textarea id="connect-message" name="Message" rows="4"></textarea>
+                </div>
+
+                <div class="form-field form-field--full">
+                  <label class="checkbox-label" for="connect-updates">
+                    <input
+                      id="connect-updates"
+                      name="Monthly_Updates"
+                      type="checkbox"
+                      value="Yes — monthly ministry updates and prayer requests"
+                    >
+                    <span>Я хочу получать ежемесячные новости служения и молитвенные нужды.</span>
+                  </label>
+                </div>
+
+                <p class="visit-form-alert form-field--full" data-form-alert role="alert" hidden>
+                  Пожалуйста, укажите ваше имя и корректный email выше.
+                </p>
+
+                <button class="button button--accent button--large form-field--full" type="submit">
+                  СВЯЗАТЬСЯ С НАМИ
+                </button>
+              </form>
+            </div>
+
+            <div class="visit-thanks" data-ajax-thanks aria-live="polite" hidden>
+              <span class="visit-thanks__badge" aria-hidden="true">✓</span>
+              <h3 class="section-title section-title--light">Спасибо!</h3>
+              <p class="visit-thanks__lead">Мы получили ваше сообщение.</p>
+              <div class="visit-thanks__text">
+                <p>Пастор Сергей свяжется с вами в ближайшее время. Благодарим за ваше участие и партнёрство!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Statement -->
+    <section class="partner-motto" aria-label="Church motto">
+      <div class="container">
+        <p class="partner-motto__text">
+          НАСТОЯЩАЯ ЖИЗНЬ НАЧИНАЕТСЯ С <span>БОГОМ.</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <a class="logo" href="index.html" aria-label="Church on the Rock — главная">
+            CHURCH ON THE <span>ROCK</span>
+          </a>
+          <p class="site-footer__about" lang="en">
+            Different backgrounds. One family.
+          </p>
+          <div class="site-footer__socials" aria-label="Социальные сети">
+            <a href="https://www.facebook.com/church.thewoodlands.tx" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/cotr_thewoodlands/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <nav class="site-footer__column" aria-label="Навигация в подвале">
+          <h2 class="site-footer__title">Навигация</h2>
+          <ul class="site-footer__list">
+            <li><a href="sunday.html">Воскресенье</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="pastor.html">Пастор</a></li>
+            <li><a href="events.html">События</a></li>
+            <li><a href="language-courses.html">Языковые курсы</a></li>
+            <li><a href="give.html">Поддержать</a></li>
+            <li><a href="plan-visit.html">Спланировать визит</a></li>
+            <li><a href="partnership-ru.html">Партнерство</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Встречи</h2>
+          <p class="site-footer__service-time" style="margin-top: 0; margin-bottom: 10px;">
+            Воскресенье · 1:00 PM
+          </p>
+          <address class="site-footer__address">
+            <p>WoodsEdge Church</p>
+            <p>25333 Gosling Rd</p>
+            <p>Spring, TX 77389</p>
+            <p>Equipping Center 1 (EC1)</p>
+          </address>
+        </div>
+
+        <div class="site-footer__column">
+          <h2 class="site-footer__title">Контакты</h2>
+          <ul class="site-footer__list">
+            <li><a href="tel:+14099990935">409-999-0935</a></li>
+            <li><a href="mailto:sergei@cotr.com">sergei@cotr.com</a></li>
+            <li><a href="https://cotrchurch.org" target="_blank" rel="noopener noreferrer">cotrchurch.org</a></li>
+          </ul>
+          <a class="site-footer__give" href="plan-visit.html">Спланировать визит</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="site-footer__legal">
+          <p>© <span data-current-year>2026</span> Church on the Rock. Все права защищены.</p>
+          <a href="#top">Наверх ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js?v=20261104-2" defer></script>
+</body>
+</html>
