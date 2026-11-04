@@ -3,19 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Познакомьтесь с пасторами Church on the Rock — Сергеем и Ниной Гороховыми.">
+  <meta name="description" content="Сергей и Нина Гороховы — пасторы Church on the Rock в Северном Хьюстоне.">
+  <link rel="alternate" hreflang="ru" href="https://cotrchurch.org/pastor.html">
+  <link rel="alternate" hreflang="en" href="https://cotrchurch.org/en/pastor.html">
+  <link rel="alternate" hreflang="uk" href="https://cotrchurch.org/ua/pastor.html">
 
   <meta property="og:title" content="Пастор — Church on the Rock">
-  <meta property="og:description" content="Давайте познакомимся! Сергей и Нина Гороховы.">
+  <meta property="og:description" content="Сергей и Нина Гороховы — пасторы Church on the Rock в Северном Хьюстоне.">
   <meta property="og:image" content="images/sergei-nina.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="images/cross.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      if (document.referrer && document.referrer.indexOf(location.host) !== -1) return;
+      try {
+        var target = localStorage.getItem("cotr_lang");
+        if (!target) {
+          var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          for (var i = 0; i < list.length; i++) {
+            var code = String(list[i] || "").toLowerCase();
+            if (code.indexOf("uk") === 0) { target = "ua"; break; }
+            if (code.indexOf("ru") === 0 || code.indexOf("be") === 0) { target = "ru"; break; }
+            if (code.indexOf("en") === 0) { target = "en"; break; }
+          }
+          if (!target) target = "en";
+        }
+        if (target !== "en" && target !== "ua") return;
+        var file = location.pathname.split("/").pop() || "index.html";
+        if (!/\.html$/i.test(file)) file = "index.html";
+        var dest = file === "partnership-ru.html"
+          ? (target === "en" ? "partnership/" : "ua/partnership.html")
+          : (target + "/" + file);
+        location.replace(dest + location.search + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="simple_cross_design_2.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261104-2">
   <link rel="stylesheet" href="typography-fix.css?v=3">
 
   <title>Пастор — Church on the Rock</title>
@@ -34,41 +62,54 @@
         <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
           <ul class="site-header__menu">
             <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
-            <li><a class="site-header__link" href="about.html">О церкви</a></li>
-            <li>
-              <a class="site-header__link" href="pastor.html" aria-current="page">
-                Пастор
-              </a>
-            </li>
+            <li><a class="site-header__link" href="about.html">О нас</a></li>
+            <li><a class="site-header__link" href="pastor.html" aria-current="page">Пастор</a></li>
             <li><a class="site-header__link" href="events.html">События</a></li>
             <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
             <li><a class="site-header__link" href="give.html">Поддержать</a></li>
-            <li><a class="site-header__link" href="partnership">Partnership</a></li>
+            <li><a class="site-header__link" href="partnership-ru.html">Партнерство</a></li>
           </ul>
 
           <div class="site-header__mobile-actions">
-            <a class="button button--accent" href="plan-visit.html">Спланировать визит</a>
-            <a class="button button--ghost" href="sunday.html">Что вас ждёт в воскресенье?</a>
+            <div class="lang-switch lang-switch--mobile-menu" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="pastor.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/pastor.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/pastor.html" data-set-lang="ua">UA</a>
+          </div>
+            <a class="button button--accent" href="plan-visit.html">СПЛАНИРОВАТЬ ВИЗИТ</a>
+            <a class="button button--ghost" href="sunday.html">Воскресенье</a>
           </div>
         </nav>
 
         <div class="site-header__actions">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="pastor.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/pastor.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/pastor.html" data-set-lang="ua">UA</a>
+          </div>
           <a class="button button--accent button--compact" href="plan-visit.html">
-            Спланировать визит
+            СПЛАНИРОВАТЬ ВИЗИТ
           </a>
         </div>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Открыть меню"
-          aria-expanded="false"
-          data-menu-button
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="site-header__mobile-controls">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="pastor.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/pastor.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/pastor.html" data-set-lang="ua">UA</a>
+          </div>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            data-menu-button
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -79,115 +120,111 @@
       <div class="container">
         <div class="pastor-page-hero__inner">
           <div class="pastor-page-hero__content">
-            <p class="eyebrow eyebrow--light">Meet the pastors</p>
+            <p class="eyebrow eyebrow--light" lang="en">Meet the pastors</p>
             <h1 class="pastor-page-hero__title" id="pastor-page-title">Пастор</h1>
-            <p class="pastor-page-hero__subtitle">Давайте познакомимся!</p>
-            <p class="pastor-page-hero__names">Сергей и Нина Гороховы</p>
+            <p class="pastor-page-hero__subtitle">Сергей и Нина Гороховы</p>
           </div>
 
           <div class="pastor-page-hero__media">
             <div class="pastor-page-hero__image">
-              <img
-                src="images/sergei-nina.jpg"
-                alt="Сергей и Нина Гороховы"
-                data-image-fallback
-              >
+              <img src="images/sergei-nina.jpg" alt="Сергей и Нина Гороховы" data-image-fallback>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- История -->
+    <!-- Story -->
     <section class="pastor-story" aria-labelledby="pastor-story-title">
       <div class="container">
         <div class="pastor-story__inner">
           <header class="pastor-story__header">
-            <p class="eyebrow">Our story</p>
+            <p class="eyebrow" lang="en">Our story</p>
             <h2 class="section-title" id="pastor-story-title">
-              Мы рады, что вы
-              <span class="section-title__accent section-title__accent--block">заглянули</span>
+              Сергей и Нина
+              <span class="section-title__accent section-title__accent--block">Гороховы</span>
             </h2>
           </header>
 
           <div class="pastor-story__content">
-            <p class="pastor-story__lead">
-              Мы верим, что церковь начинается с отношений. Поэтому нам хочется
-              не просто рассказать о себе, а познакомиться с вами.
-            </p>
-
-            <p>
-              Более 20 лет наша жизнь посвящена служению людям. За эти годы мы
-              участвовали в основании и развитии нескольких церквей, помогали
-              семьям, готовили служителей и сопровождали людей на разных этапах
-              их духовного пути.
-            </p>
-
-            <p>
-              Сегодня мы развиваем церковь в Северном Хьюстоне. Мы мечтаем, чтобы
-              она стала местом, где люди разных стран смогут найти духовный дом,
-              настоящих друзей и открыть для себя настоящую жизнь во Христе.
-            </p>
-
-            <p>
-              Мы женаты уже много лет и воспитываем троих детей. Семья всегда была
-              для нас одним из главных приоритетов. Мы убеждены, что сильная церковь
-              начинается с крепких семей, искренних отношений и любви к людям.
-            </p>
-
-            <p>
-              Переезд в другую страну помог нам ещё лучше понять, насколько каждому
-              человеку важно найти сообщество, поддержку и место, где можно
-              почувствовать себя как дома.
-            </p>
+            <p class="pastor-story__lead">Мы верим, что церковь начинается с отношений. Поэтому нам хочется не просто рассказать о себе, а познакомиться с вами.</p>
+            <p>Более 20 лет наша жизнь связана со служением людям и развитием церквей. За это время мы помогали людям расти в вере, строить крепкие семьи и находить своё место в жизни и служении.</p>
+            <p>Мы женаты 25 лет и воспитываем троих детей. Поэтому семья, отношения и воспитание детей для нас – не просто темы, о которых мы говорим, а важная часть нашей собственной жизни.</p>
+            <p>Сегодня мы развиваем церковь в Северном Хьюстоне. А собственный переезд в другую страну помог нам ещё глубже понять, как важно оказаться среди людей, которые тебя знают, поддерживают и рядом с которыми можно почувствовать себя дома.</p>
+            <p>Именно такую церковь мы хотим создавать здесь – открытую для людей разных стран, с настоящими отношениями, живой верой и местом для каждого.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Главная мысль -->
-    <section class="pastor-quote" aria-labelledby="pastor-quote-title">
-      <div class="container">
-        <div class="pastor-quote__inner">
-          <p class="eyebrow eyebrow--light">What we have learned</p>
-          <h2 class="pastor-quote__title" id="pastor-quote-title">
-            За все годы служения мы убедились в одной простой истине:
-          </h2>
-          <blockquote class="pastor-quote__text">
-            Настоящая жизнь начинается с отношений с Богом.
-          </blockquote>
-          <p class="pastor-quote__afterword">
-            Именно этой надеждой мы хотим делиться с каждым человеком, которого
-            Бог приводит в нашу церковь.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Встреча -->
+    <!-- Meet in Person -->
     <section class="pastor-meeting" id="meeting" aria-labelledby="pastor-meeting-title">
       <div class="container">
         <div class="pastor-meeting__inner" data-mouse-glow>
           <div class="pastor-meeting__content">
-            <p class="eyebrow eyebrow--light">Coffee and conversation</p>
+            <p class="eyebrow eyebrow--light" lang="en">Coffee and conversation</p>
             <h2 class="section-title section-title--light" id="pastor-meeting-title">
               Будем рады
               <span class="section-title__accent section-title__accent--block">познакомиться!</span>
             </h2>
-            <p class="section-subtitle section-subtitle--light">
-              Если вы ищете церковь, хотите поговорить о вере, семье или просто
-              познакомиться за чашкой кофе — будем рады встрече.
-            </p>
-            <p class="pastor-meeting__invitation">Давайте познакомимся лично!</p>
+            <p class="section-subtitle section-subtitle--light">Если вы ищете церковь, хотите поговорить о вере, семье или просто познакомиться за чашкой кофе – будем рады познакомиться с вами лично.</p>
 
-            <a class="button button--accent button--large" href="plan-visit.html">
-              Спланировать визит
-            </a>
+            <div style="margin-top: 34px;">
+              <button class="button button--accent button--large" type="button" data-pastor-connect-toggle>
+                Познакомиться лично
+              </button>
+            </div>
 
-            <p class="direct-email">
-              Или напишите напрямую:
-              <a href="mailto:sergei@cotr.com">sergei@cotr.com</a>
-            </p>
+            <div data-pastor-connect-wrap hidden>
+              <div data-ajax-container>
+                <div class="inline-ajax-form-wrap" data-ajax-form-view>
+                  <form
+                    class="registration-form"
+                    name="pastor-connect"
+                    method="POST"
+                    data-netlify="true"
+                    data-ajax-form
+                    novalidate
+                  >
+                    <input type="hidden" name="form-name" value="pastor-connect">
+                    <input type="hidden" name="Language" value="RU">
+
+                    <div class="form-field">
+                      <label for="pastor-name">Ваше имя</label>
+                      <input id="pastor-name" name="Name" type="text" autocomplete="name" required>
+                      <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите ваше имя</span>
+                    </div>
+
+                    <div class="form-field">
+                      <label for="pastor-contact">Телефон или Email</label>
+                      <input id="pastor-contact" name="Contact" type="text" required>
+                      <span class="form-field__error" data-field-error hidden>Пожалуйста, укажите телефон или email</span>
+                    </div>
+
+                    <div class="form-field form-field--full">
+                      <label for="pastor-msg">Сообщение (необязательно)</label>
+                      <textarea id="pastor-msg" name="Message" rows="3"></textarea>
+                    </div>
+
+                    <p class="visit-form-alert form-field--full" data-form-alert role="alert" hidden>
+                      Пожалуйста, укажите ваше имя и телефон или email для связи.
+                    </p>
+
+                    <button class="button button--accent button--large form-field--full" type="submit">
+                      Отправить
+                    </button>
+                  </form>
+                </div>
+
+                <div class="visit-thanks visit-thanks--compact" data-ajax-thanks aria-live="polite" hidden>
+                  <span class="visit-thanks__badge" aria-hidden="true">✓</span>
+                  <h3 class="section-title section-title--light">Спасибо!</h3>
+                  <div class="visit-thanks__text">
+                    <p>Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,13 +252,13 @@
           <h2 class="site-footer__title">Навигация</h2>
           <ul class="site-footer__list">
             <li><a href="sunday.html">Воскресенье</a></li>
-            <li><a href="about.html">О церкви</a></li>
+            <li><a href="about.html">О нас</a></li>
             <li><a href="pastor.html">Пастор</a></li>
             <li><a href="events.html">События</a></li>
             <li><a href="language-courses.html">Языковые курсы</a></li>
             <li><a href="give.html">Поддержать</a></li>
             <li><a href="plan-visit.html">Спланировать визит</a></li>
-            <li><a href="partnership">Partnership</a></li>
+            <li><a href="partnership-ru.html">Партнерство</a></li>
           </ul>
         </nav>
 
@@ -260,6 +297,6 @@
     </div>
   </footer>
 
-  <script src="scripts.js?v=20261031-1" defer></script>
+  <script src="scripts.js?v=20261104-2" defer></script>
 </body>
 </html>

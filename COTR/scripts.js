@@ -1,9 +1,35 @@
 "use strict";
 
+const docLang = (document.documentElement.lang || "ru").toLowerCase();
+
+function persistChosenLanguage(lang) {
+  try {
+    if (lang) localStorage.setItem("cotr_lang", lang);
+  } catch (_) {}
+}
+
+document.querySelectorAll("[data-set-lang]").forEach((link) => {
+  const save = () => persistChosenLanguage(link.dataset.setLang);
+  link.addEventListener("pointerdown", save);
+  link.addEventListener("click", save);
+});
+
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-navigation]");
-const mobileBreakpoint = window.matchMedia("(max-width: 1180px)");
+const mobileBreakpoint = window.matchMedia("(max-width: 1240px)");
+
+const menuLabels = {
+  ru: { open: "Открыть меню", close: "Закрыть меню" },
+  en: { open: "Open menu", close: "Close menu" },
+  uk: { open: "Відкрити меню", close: "Закрити меню" },
+};
+
+function getMenuLabels() {
+  if (docLang.startsWith("en")) return menuLabels.en;
+  if (docLang.startsWith("uk")) return menuLabels.uk;
+  return menuLabels.ru;
+}
 
 function updateHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -12,13 +38,14 @@ function updateHeader() {
 function setMenuState(isOpen) {
   if (!menuButton || !navigation) return;
 
+  const labels = getMenuLabels();
   menuButton.classList.toggle("is-active", isOpen);
   navigation.classList.toggle("is-open", isOpen);
   header?.classList.toggle("is-menu-open", isOpen);
   document.body.classList.toggle("menu-open", isOpen);
 
   menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+  menuButton.setAttribute("aria-label", isOpen ? labels.close : labels.open);
 }
 
 function closeMenu() {
@@ -61,83 +88,90 @@ document.querySelectorAll("[data-image-fallback]").forEach((image) => {
   });
 });
 
-// Формы регистрации создают готовое письмо с заполненными данными.
-document.querySelectorAll("[data-email-form]").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.reportValidity()) return;
-
-    const recipient = form.dataset.recipient;
-    const subject = form.dataset.subject || "Website registration";
-    const status = form.querySelector("[data-form-status]");
-    const body = Array.from(new FormData(form).entries())
-      .filter(([, value]) => String(value).trim())
-      .map(([name, value]) => `${name}: ${value}`)
-      .join("\n");
-
-    if (status) {
-      status.textContent =
-        document.documentElement.lang === "en"
-          ? "Opening your email app…"
-          : "Открываем почтовое приложение…";
-    }
-
-    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-});
-
-// Предзаполнение темы обращения на странице Partnership (#connect).
-const partnerIntentConfig = {
-  monthly: {
-    label: "Monthly Partnership (North Houston · 12 months)",
-    subject: "Monthly Partnership — North Houston",
-    placeholder: "I would like to learn more about becoming a monthly partner for North Houston.",
+// Предзаполнение темы обращения на странице Partnership (#connect) на 3 языках.
+const partnerIntentByLang = {
+  en: {
+    monthly: {
+      label: "Monthly Partnership (North Houston · 12 months)",
+      placeholder: "I would like to learn more about becoming a monthly partner for North Houston.",
+    },
+    updates: {
+      label: "Monthly Ministry Updates & Prayer Requests",
+      placeholder: "Optional note or prayer greeting…",
+      checkUpdates: true,
+    },
+    missions: {
+      label: "Missions Support (Volga Region Leadership & Church Planting)",
+      placeholder: "I would like to support Pastor Sergei's leadership training and church planting ministry.",
+    },
+    "contact-sergei": {
+      label: "Direct Message for Pastor Sergei",
+      placeholder: "Write your question or message for Pastor Sergei…",
+    },
   },
-  "one-time": {
-    label: "One-Time Gift (North Houston)",
-    subject: "One-Time Gift — North Houston",
-    placeholder: "I would like to make a one-time gift to support Church on the Rock.",
+  ru: {
+    monthly: {
+      label: "Ежемесячное партнёрство (Северный Хьюстон · 12 месяцев)",
+      placeholder: "Хочу узнать подробнее о ежемесячном партнёрстве.",
+    },
+    updates: {
+      label: "Ежемесячные новости служения и молитвенные нужды",
+      placeholder: "Необязательный комментарий…",
+      checkUpdates: true,
+    },
+    missions: {
+      label: "Поддержка миссии (обучение лидеров и насаждение церквей в Поволжье)",
+      placeholder: "Хочу поддержать миссионерское и лидерское служение пастора Сергея.",
+    },
+    "contact-sergei": {
+      label: "Личное сообщение пастору Сергею",
+      placeholder: "Напишите ваш вопрос или сообщение для пастора Сергея…",
+    },
   },
-  updates: {
-    label: "Monthly Ministry Updates & Prayer Requests",
-    subject: "Sign Up for Monthly Ministry Updates",
-    placeholder: "Optional note or prayer greeting…",
-    checkUpdates: true,
-  },
-  missions: {
-    label: "Missions Support (Volga Region Leadership & Church Planting)",
-    subject: "Missions Support — Volga Region Ministry",
-    placeholder: "I would like to support Pastor Sergei's leadership training and church planting ministry.",
-  },
-  "contact-sergei": {
-    label: "Direct Message for Pastor Sergei",
-    subject: "Missions & Partnership Inquiry — Pastor Sergei",
-    placeholder: "Write your question or message for Pastor Sergei…",
+  uk: {
+    monthly: {
+      label: "Щомісячне партнерство (Північний Х’юстон · 12 місяців)",
+      placeholder: "Хочу дізнатися детальніше про щомісячне партнерство.",
+    },
+    updates: {
+      label: "Щомісячні новини служіння та молитовні потреби",
+      placeholder: "Необов’язковий коментар…",
+      checkUpdates: true,
+    },
+    missions: {
+      label: "Підтримка місії (навчання лідерів та заснування церков)",
+      placeholder: "Хочу підтримати місіонерське та лідерське служіння пастора Сергія.",
+    },
+    "contact-sergei": {
+      label: "Особисте повідомлення пастору Сергію",
+      placeholder: "Напишіть ваше запитання або повідомлення для пастора Сергія…",
+    },
   },
 };
 
-const connectForm = document.querySelector("[data-partner-form]");
-if (connectForm) {
-  const intentPill = connectForm.querySelector("[data-intent-pill]");
-  const intentLabel = connectForm.querySelector("[data-intent-label]");
-  const intentReset = connectForm.querySelector("[data-intent-reset]");
-  const intentHidden = connectForm.querySelector("[data-intent-input]");
-  const messageField = connectForm.querySelector("textarea[name='Message']");
-  const updatesCheckbox = connectForm.querySelector("input[type='checkbox']");
-  const nameField = connectForm.querySelector("input[name='Name']");
-  const defaultSubject = connectForm.dataset.subject;
+function bindIntentForm(formSelector, triggerAttr, intentDictionary) {
+  const form = document.querySelector(formSelector);
+  if (!form) return;
+
+  const langKey = docLang.startsWith("en") ? "en" : docLang.startsWith("uk") ? "uk" : "ru";
+  const dict = intentDictionary[langKey] || intentDictionary.en;
+  const intentPill = form.querySelector("[data-intent-pill]");
+  const intentLabel = form.querySelector("[data-intent-label]");
+  const intentReset = form.querySelector("[data-intent-reset]");
+  const intentHidden = form.querySelector("[data-intent-input]");
+  const messageField = form.querySelector("textarea[name='Message']");
+  const updatesCheckbox = form.querySelector("input[type='checkbox']");
+  const nameField = form.querySelector("input[name='Name']");
   const defaultPlaceholder = messageField?.getAttribute("placeholder") || "";
 
-  function applyPartnerIntent(key) {
-    const config = partnerIntentConfig[key];
+  function applyIntent(key) {
+    const config = dict[key];
     if (!config) return;
 
-    connectForm.dataset.subject = config.subject;
     if (intentHidden) intentHidden.value = config.label;
     if (intentLabel) intentLabel.textContent = config.label;
     if (intentPill) intentPill.hidden = false;
-    if (messageField && !messageField.value.trim()) {
+    if (messageField && !messageField.value.trim() && config.placeholder) {
       messageField.setAttribute("placeholder", config.placeholder);
     }
     if (config.checkUpdates && updatesCheckbox) {
@@ -145,18 +179,82 @@ if (connectForm) {
     }
   }
 
-  document.querySelectorAll("[data-partner-intent]").forEach((trigger) => {
+  document.querySelectorAll(`[${triggerAttr}]`).forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      applyPartnerIntent(trigger.dataset.partnerIntent);
+      const container = form.closest("[data-ajax-container]");
+      const formView = container?.querySelector("[data-ajax-form-view]");
+      const thanksView = container?.querySelector("[data-ajax-thanks]");
+      if (thanksView && !thanksView.hidden) {
+        thanksView.hidden = true;
+        if (formView) formView.hidden = false;
+      }
+      const key = trigger.getAttribute(triggerAttr);
+      applyIntent(key);
       window.setTimeout(() => nameField?.focus({ preventScroll: true }), 450);
     });
   });
 
   intentReset?.addEventListener("click", () => {
-    connectForm.dataset.subject = defaultSubject;
     if (intentHidden) intentHidden.value = "";
     if (intentPill) intentPill.hidden = true;
     if (messageField) messageField.setAttribute("placeholder", defaultPlaceholder);
+  });
+}
+
+bindIntentForm("[data-partner-form]", "data-partner-intent", partnerIntentByLang);
+
+// Предзаполнение темы на странице «Поддержать» (Молитва / Волонтёрство).
+const giveIntentByLang = {
+  ru: {
+    prayer: {
+      label: "Молитвенная поддержка — получать молитвенные нужды",
+      placeholder: "Напишите пару слов, если хотите, или просто оставьте контакт для получения молитвенных нужд.",
+    },
+    volunteer: {
+      label: "Волонтёрство — присоединиться к команде",
+      placeholder: "Расскажите коротко о себе или в каком служении вам хотелось бы участвовать.",
+    },
+  },
+  en: {
+    prayer: {
+      label: "Prayer Support — Receive Prayer Requests",
+      placeholder: "Optional message or prayer note…",
+    },
+    volunteer: {
+      label: "Volunteering — Join the Team",
+      placeholder: "Tell us briefly how you would love to serve or get involved…",
+    },
+  },
+  uk: {
+    prayer: {
+      label: "Молитовна підтримка — отримувати молитовні потреби",
+      placeholder: "Напишіть кілька слів за бажанням або просто залиште контакт.",
+    },
+    volunteer: {
+      label: "Волонтерство — приєднатися до команди",
+      placeholder: "Розкажіть коротко про себе або в якому служінні ви хотіли б брати участь.",
+    },
+  },
+};
+
+bindIntentForm("[data-give-form]", "data-give-intent", giveIntentByLang);
+
+// Кнопка «Познакомиться лично» на странице «Пастор» — открывает форму прямо на странице.
+const pastorConnectToggle = document.querySelector("[data-pastor-connect-toggle]");
+const pastorConnectWrap = document.querySelector("[data-pastor-connect-wrap]");
+if (pastorConnectToggle && pastorConnectWrap) {
+  pastorConnectToggle.addEventListener("click", () => {
+    pastorConnectWrap.hidden = false;
+    const container = pastorConnectWrap.querySelector("[data-ajax-container]") || pastorConnectWrap;
+    const formView = container.querySelector("[data-ajax-form-view]");
+    const thanksView = container.querySelector("[data-ajax-thanks]");
+    if (thanksView && !thanksView.hidden) {
+      thanksView.hidden = true;
+      if (formView) formView.hidden = false;
+    }
+    pastorConnectWrap.scrollIntoView({ behavior: "smooth", block: "center" });
+    const firstInput = pastorConnectWrap.querySelector("input[name='Name']");
+    window.setTimeout(() => firstInput?.focus({ preventScroll: true }), 320);
   });
 }
 
@@ -295,6 +393,30 @@ if (visitForm) {
     showVisitThanks(true);
   });
 }
+
+// Универсальная фоновая отправка форм (Partnership, Языковые курсы, Поддержать, Пастор)
+// через Netlify Forms без открытия почтового приложения.
+document.querySelectorAll("[data-ajax-form]").forEach((form) => {
+  const container = form.closest("[data-ajax-container]");
+  const formView = container?.querySelector("[data-ajax-form-view]");
+  const thanksView = container?.querySelector("[data-ajax-thanks]");
+  const alertEl = form.querySelector("[data-form-alert]");
+
+  bindLiveFieldClearing(form, alertEl);
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!validateCustomForm(form, alertEl)) return;
+
+    submitNetlifyFormInBackground(form);
+
+    if (formView) formView.hidden = true;
+    if (thanksView) {
+      thanksView.hidden = false;
+      thanksView.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+});
 
 const year = document.querySelector("[data-current-year]");
 if (year) year.textContent = String(new Date().getFullYear());

@@ -3,22 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="О Church on the Rock, наша миссия и основные положения веры.">
+  <meta name="description" content="О нас, наши убеждения и вероучение Church on the Rock в Северном Хьюстоне.">
+  <link rel="alternate" hreflang="ru" href="https://cotrchurch.org/about.html">
+  <link rel="alternate" hreflang="en" href="https://cotrchurch.org/en/about.html">
+  <link rel="alternate" hreflang="uk" href="https://cotrchurch.org/ua/about.html">
 
-  <meta property="og:title" content="О церкви — Church on the Rock">
-  <meta property="og:description" content="Different backgrounds. One family.">
+  <meta property="og:title" content="О нас — Church on the Rock">
+  <meta property="og:description" content="О нас, наши убеждения и вероучение Church on the Rock в Северном Хьюстоне.">
   <meta property="og:image" content="images/community.png">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="images/cross.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      if (document.referrer && document.referrer.indexOf(location.host) !== -1) return;
+      try {
+        var target = localStorage.getItem("cotr_lang");
+        if (!target) {
+          var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          for (var i = 0; i < list.length; i++) {
+            var code = String(list[i] || "").toLowerCase();
+            if (code.indexOf("uk") === 0) { target = "ua"; break; }
+            if (code.indexOf("ru") === 0 || code.indexOf("be") === 0) { target = "ru"; break; }
+            if (code.indexOf("en") === 0) { target = "en"; break; }
+          }
+          if (!target) target = "en";
+        }
+        if (target !== "en" && target !== "ua") return;
+        var file = location.pathname.split("/").pop() || "index.html";
+        if (!/\.html$/i.test(file)) file = "index.html";
+        var dest = file === "partnership-ru.html"
+          ? (target === "en" ? "partnership/" : "ua/partnership.html")
+          : (target + "/" + file);
+        location.replace(dest + location.search + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="simple_cross_design_2.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/bebas-neue-cyrillic.woff" as="font" type="font/woff" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261031-1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261104-2">
   <link rel="stylesheet" href="typography-fix.css?v=3">
 
-  <title>О церкви — Church on the Rock</title>
+  <title>О нас — Church on the Rock</title>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -34,41 +62,54 @@
         <nav class="site-header__nav" aria-label="Основная навигация" data-navigation>
           <ul class="site-header__menu">
             <li><a class="site-header__link" href="sunday.html">Воскресенье</a></li>
-            <li>
-              <a class="site-header__link" href="about.html" aria-current="page">
-                О церкви
-              </a>
-            </li>
+            <li><a class="site-header__link" href="about.html" aria-current="page">О нас</a></li>
             <li><a class="site-header__link" href="pastor.html">Пастор</a></li>
             <li><a class="site-header__link" href="events.html">События</a></li>
             <li><a class="site-header__link" href="language-courses.html">Языковые курсы</a></li>
             <li><a class="site-header__link" href="give.html">Поддержать</a></li>
-            <li><a class="site-header__link" href="partnership">Partnership</a></li>
+            <li><a class="site-header__link" href="partnership-ru.html">Партнерство</a></li>
           </ul>
 
           <div class="site-header__mobile-actions">
-            <a class="button button--accent" href="plan-visit.html">Спланировать визит</a>
-            <a class="button button--ghost" href="sunday.html">Что вас ждёт в воскресенье?</a>
+            <div class="lang-switch lang-switch--mobile-menu" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="about.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/about.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/about.html" data-set-lang="ua">UA</a>
+          </div>
+            <a class="button button--accent" href="plan-visit.html">СПЛАНИРОВАТЬ ВИЗИТ</a>
+            <a class="button button--ghost" href="sunday.html">Воскресенье</a>
           </div>
         </nav>
 
         <div class="site-header__actions">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="about.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/about.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/about.html" data-set-lang="ua">UA</a>
+          </div>
           <a class="button button--accent button--compact" href="plan-visit.html">
-            Спланировать визит
+            СПЛАНИРОВАТЬ ВИЗИТ
           </a>
         </div>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Открыть меню"
-          aria-expanded="false"
-          data-menu-button
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="site-header__mobile-controls">
+          <div class="lang-switch" role="group" aria-label="Выбор языка">
+            <a class="lang-switch__link" href="about.html" data-set-lang="ru" aria-current="true">RU</a>
+            <a class="lang-switch__link" href="en/about.html" data-set-lang="en">EN</a>
+            <a class="lang-switch__link" href="ua/about.html" data-set-lang="ua">UA</a>
+          </div>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            data-menu-button
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -78,8 +119,8 @@
     <section class="about-hero" aria-labelledby="about-title">
       <div class="container">
         <div class="about-hero__inner">
-          <p class="eyebrow eyebrow--light">О церкви</p>
-          <h1 class="about-hero__title" id="about-title">
+          <p class="eyebrow eyebrow--light">О нас</p>
+          <h1 class="about-hero__title" id="about-title" lang="en">
             Church on the <span>Rock</span>
           </h1>
           <p class="about-hero__subtitle" lang="en">
@@ -89,113 +130,81 @@
       </div>
     </section>
 
-    <!-- Навигация по странице -->
-    <nav class="about-sections" aria-label="Разделы страницы «О церкви»">
+    <!-- Section Nav -->
+    <nav class="about-sections" aria-label="Разделы страницы «О нас»">
       <div class="container">
         <ul class="about-sections__list">
-          <li><a href="#church">О церкви</a></li>
+          <li><a href="#church">О нас</a></li>
           <li><a href="#mission">Миссия</a></li>
           <li><a href="#beliefs">Во что мы верим</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- О церкви -->
+    <!-- About -->
     <section class="about-content" id="church" aria-labelledby="about-content-title">
       <div class="container">
         <div class="about-content__inner">
           <header class="about-content__header">
-            <p class="eyebrow">Our story</p>
-            <h2 class="section-title" id="about-content-title">О церкви</h2>
+            <p class="eyebrow" lang="en">Our story</p>
+            <h2 class="section-title" id="about-content-title">О нас</h2>
           </header>
 
           <div class="about-content__text">
-            <p class="about-content__lead">
-              Мы развиваем церковь в Северном Хьюстоне для людей разных стран,
-              которых объединяют общий язык, похожий жизненный опыт и желание
-              найти духовный дом.
-            </p>
-            <p>
-              Мы стремимся создать открытое сообщество, где каждый может найти
-              друзей, поддержку и ответы на духовные вопросы.
-            </p>
-            <p>
-              Мы ценим культурное разнообразие и стремимся сделать церковь
-              открытой и понятной для каждого.
-            </p>
+            <p class="about-content__lead">Мы – церковь в Северном Хьюстоне, где вы встретите людей из Украины, России, Беларуси, Казахстана, Узбекистана, Армении и других стран.</p>
+            <p>Мы ценим культурное разнообразие и создаём открытое сообщество, где можно найти друзей, расти в вере и чувствовать себя как дома.</p>
           </div>
-
-          <blockquote class="about-content__belief">
-            <p>
-              Мы верим —
-              <strong>настоящая жизнь начинается с отношений с Богом!</strong>
-            </p>
-          </blockquote>
         </div>
       </div>
     </section>
 
-    <!-- Миссия -->
+    <!-- Conviction & Vision -->
     <section class="about-mission" id="mission" aria-labelledby="mission-title">
       <div class="container">
         <div class="about-mission__inner">
           <header class="section-header section-header--narrow">
-            <p class="eyebrow eyebrow--light">Our mission</p>
+            <p class="eyebrow eyebrow--light">Мы убеждены</p>
             <h2 class="section-title section-title--light" id="mission-title">
-              Наша <span class="section-title__accent">миссия</span>
+              Мы убеждены, <span class="section-title__accent">что...</span>
             </h2>
-            <p class="about-mission__statement">
-                Мы созидаем сообщество, где люди открывают настоящую жизнь с Богом,
-                раскрывают свою уникальность и живут своим призванием.
-            </p>
+            <p class="about-mission__statement">Настоящая жизнь начинается с отношений с Богом.</p>
           </header>
 
-          <h3 class="about-mission__vision-title">Мы видим церковь как:</h3>
+          <h3 class="about-mission__vision-title">Поэтому мы стремимся созидать церковь как:</h3>
 
           <div class="about-mission__grid">
-            <article class="about-mission-card" data-mouse-glow>
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
               <span class="about-mission-card__number" aria-hidden="true">01</span>
               <h3 class="about-mission-card__title">Место вдохновения</h3>
-              <p class="about-mission-card__text">
-                  Мы вдохновляем людей жить для Бога,
-                  смело мечтать и менять этот мир.
-
-              </p>
+              <p class="about-mission-card__text">Где вера помогает видеть больше, мечтать смелее и жить со смыслом.</p>
             </article>
 
-            <article class="about-mission-card" data-mouse-glow>
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
               <span class="about-mission-card__number" aria-hidden="true">02</span>
-              <h3 class="about-mission-card__title">Место любви</h3>
-              <p class="about-mission-card__text">
-                  Для нас каждый человек уникален, ценен и принят.
-              </p>
+              <h3 class="about-mission-card__title">Место для всех</h3>
+              <p class="about-mission-card__text">Где каждый важен и принят – независимо от происхождения, культуры или прошлого.</p>
             </article>
 
-            <article class="about-mission-card" data-mouse-glow>
+            <article class="about-mission-card about-mission-card--clean" data-mouse-glow>
               <span class="about-mission-card__number" aria-hidden="true">03</span>
-              <h3 class="about-mission-card__title">Место развития</h3>
-              <p class="about-mission-card__text">
-                Мы помогаем людям возрастать в вере, укреплять семью и становиться
-                лучше во всех сферах жизни.
-              </p>
+              <h3 class="about-mission-card__title">Место роста</h3>
+              <p class="about-mission-card__text">Где мы растём духовно, укрепляем семью и раскрываем лучшее, что Бог вложил в нас.</p>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Во что мы верим -->
+    <!-- What We Believe -->
     <section class="beliefs" id="beliefs" aria-labelledby="beliefs-title">
       <div class="container">
         <div class="beliefs__inner">
           <header class="beliefs__header">
-            <p class="eyebrow">Statement of faith</p>
+            <p class="eyebrow" lang="en">Statement of faith</p>
             <h2 class="section-title" id="beliefs-title">
               Во что мы <span class="section-title__accent">верим</span>
             </h2>
-            <p class="section-subtitle">
-              Нажмите на название раздела, чтобы прочитать подробнее.
-            </p>
+            <p class="section-subtitle">Нажмите на название раздела, чтобы прочитать подробнее.</p>
           </header>
 
           <div class="beliefs__list">
@@ -213,61 +222,33 @@
             <details class="belief-item">
               <summary><span class="belief-item__number">02</span><span>Священное Писание</span></summary>
               <div class="belief-item__content">
-                <p>
-                  Мы верим, что 66 книг Священного Писания являются богодухновенным,
-                  непогрешимым и безошибочным Словом Божьим, данным человеку.
-                </p>
-                <p>
-                  Апокрифические и другие исторические христианские книги могут
-                  представлять духовную и историческую ценность, однако они не
-                  обладают авторитетом Священного Писания и должны оцениваться в свете Библии.
-                </p>
+                <p>Мы верим, что 66 книг Священного Писания являются богодухновенным, непогрешимым и безошибочным Словом Божьим, данным человеку.</p>
+                <p>Апокрифические и другие исторические христианские книги могут представлять духовную и историческую ценность, однако они не обладают авторитетом Священного Писания и должны оцениваться в свете Библии.</p>
               </div>
             </details>
 
             <details class="belief-item">
               <summary><span class="belief-item__number">03</span><span>Троица</span></summary>
               <div class="belief-item__content">
-                <p>
-                  Мы верим в Единого Бога, существующего в трёх Личностях: Отце,
-                  Сыне и Святом Духе.
-                </p>
-                <p>
-                  Мы не разделяем учение о том, что Отец, Сын и Святой Дух являются
-                  лишь различными проявлениями или модусами одного Лица. Троица — это
-                  три Личности, пребывающие в совершенном единстве воли, природы и
-                  намерений, при этом исполняющие различные роли в Божьем замысле.
-                </p>
+                <p>Мы верим в Единого Бога, существующего в трёх Личностях: Отце, Сыне и Святом Духе.</p>
+                <p>Мы не разделяем учение о том, что Отец, Сын и Святой Дух являются лишь различными проявлениями или модусами одного Лица. Троица — это три Личности, пребывающие в совершенном единстве воли, природы и намерений, при этом исполняющие различные роли в Божьем замысле.</p>
                 <p>Так, в деле спасения:</p>
                 <ul class="belief-points">
                   <li>Отец является Источником и Законодателем спасения;</li>
                   <li>Сын — Спасителем и Искупителем;</li>
                   <li>Святой Дух — Тем, Кто делает реальность спасения действенной в жизни человека.</li>
                 </ul>
-                <p>
-                  Мы верим, что Иисус Христос является истинным Богом и истинным
-                  Человеком — на сто процентов Богом и на сто процентов Человеком.
-                </p>
-                <p>
-                  Мы верим, что Святой Дух является не безличной силой, а реальной
-                  Божественной Личностью.
-                </p>
+                <p>Мы верим, что Иисус Христос является истинным Богом и истинным Человеком — на сто процентов Богом и на сто процентов Человеком.</p>
+                <p>Мы верим, что Святой Дух является не безличной силой, а реальной Божественной Личностью.</p>
               </div>
             </details>
 
             <details class="belief-item">
               <summary><span class="belief-item__number">04</span><span>Спасение</span></summary>
               <div class="belief-item__content">
-                <p>
-                  Мы верим, что спасение даётся человеку исключительно по благодати
-                  Божьей через веру в Иисуса Христа как Господа и Спасителя.
-                </p>
+                <p>Мы верим, что спасение даётся человеку исключительно по благодати Божьей через веру в Иисуса Христа как Господа и Спасителя.</p>
                 <p>Добрые дела являются следствием спасения, а не его причиной.</p>
-                <p>
-                  Спасение принимается через покаяние и веру. Истинность покаяния
-                  подтверждается посвящённостью Христу, послушанием Его Слову и
-                  стремлением жить в соответствии с Его волей.
-                </p>
+                <p>Спасение принимается через покаяние и веру. Истинность покаяния подтверждается посвящённостью Христу, послушанием Его Слову и стремлением жить в соответствии с Его волей.</p>
               </div>
             </details>
 
@@ -275,21 +256,9 @@
               <summary><span class="belief-item__number">05</span><span>Водное крещение</span></summary>
               <div class="belief-item__content">
                 <p>Водное крещение является таинством Церкви.</p>
-                <p>
-                  Мы не разделяем крещение «во имя Иисуса» и крещение «во имя Отца,
-                  Сына и Святого Духа», противопоставляя их друг другу. Крещаемый
-                  исповедует веру в Иисуса Христа как Господа и Спасителя, принимает
-                  библейское учение о Троице и даёт обещание Богу доброй совести.
-                </p>
-                <p>
-                  Крещение не свидетельствует о достижении совершенства, но является
-                  выражением решения жить для Господа и следовать за Ним.
-                </p>
-                <p>
-                  Мы считаем, что не следует без необходимости откладывать водное
-                  крещение. Вместе с тем важно убедиться, что человек понимает основы
-                  христианской веры и осознанно посвящает свою жизнь Христу.
-                </p>
+                <p>Мы не разделяем крещение «во имя Иисуса» и крещение «во имя Отца, Сына и Святого Духа», противопоставляя их друг другу. Крещаемый исповедует веру в Иисуса Христа как Господа и Спасителя, принимает библейское учение о Троице и даёт обещание Богу доброй совести.</p>
+                <p>Крещение не свидетельствует о достижении совершенства, но является выражением решения жить для Господа и следовать за Ним.</p>
+                <p>Мы считаем, что не следует без необходимости откладывать водное крещение. Вместе с тем важно убедиться, что человек понимает основы христианской веры и осознанно посвящает свою жизнь Христу.</p>
               </div>
             </details>
 
@@ -298,47 +267,19 @@
               <div class="belief-item__content">
                 <p>Причастие является таинством Церкви.</p>
                 <p>Участие в Причастии предназначено для верующих людей.</p>
-                <p>
-                  Мы стремимся помогать верующим понимать значение хлеба и чаши как
-                  символов искупительной жертвы Иисуса Христа, принимать Божье
-                  прощение, утверждаться в дарованной праведности и укрепляться в
-                  надежде на вечную жизнь.
-                </p>
+                <p>Мы стремимся помогать верующим понимать значение хлеба и чаши как символов искупительной жертвы Иисуса Христа, принимать Божье прощение, утверждаться в дарованной праведности и укрепляться в надежде на вечную жизнь.</p>
               </div>
             </details>
 
             <details class="belief-item">
-              <summary>
-                <span class="belief-item__number">07</span>
-                <span>Святой Дух, духовные дары, чудеса и исцеления</span>
-              </summary>
+              <summary><span class="belief-item__number">07</span><span>Святой Дух, духовные дары, чудеса и исцеления</span></summary>
               <div class="belief-item__content">
                 <p>Мы верим, что действие Святого Духа продолжается и сегодня.</p>
-                <p>
-                  Мы не придерживаемся взгляда, согласно которому чудеса, духовные
-                  дары и сверхъестественное действие Бога прекратились в апостольскую
-                  эпоху. Бог продолжает действовать среди Своего народа, исцелять,
-                  освобождать, направлять и наделять верующих духовными дарами.
-                </p>
-                <p>
-                  Мы побуждаем христиан исполняться Святым Духом и ревновать о
-                  духовных дарах для служения Богу и ближним.
-                </p>
-                <p>
-                  При этом мы верим, что чудеса не являются самоцелью. Их предназначение —
-                  указывать людям на Христа и служить нуждам человека. Чудеса не должны
-                  использоваться для шоу, самопрославления или искусственного роста церкви.
-                </p>
-                <p>
-                  Мы верим, что исцеление может прийти мгновенно, постепенно или получить
-                  своё окончательное исполнение в воскресении и полном искуплении человеческого тела.
-                </p>
-                <p>
-                  Мы также признаём реальность духовной борьбы и необходимость служения
-                  освобождения. Вместе с тем освобождение от демонического влияния не должно
-                  ограничиваться только молитвой, но нуждается в дальнейшем пасторском
-                  сопровождении, ученичестве и духовном возрастании человека.
-                </p>
+                <p>Мы не придерживаемся взгляда, согласно которому чудеса, духовные дары и сверхъестественное действие Бога прекратились в апостольскую эпоху. Бог продолжает действовать среди Своего народа, исцелять, освобождать, направлять и наделять верующих духовными дарами.</p>
+                <p>Мы побуждаем христиан исполняться Святым Духом и ревновать о духовных дарах для служения Богу и ближним.</p>
+                <p>При этом мы верим, что чудеса не являются самоцелью. Их предназначение — указывать людям на Христа и служить нуждам человека. Чудеса не должны использоваться для шоу, самопрославления или искусственного роста церкви.</p>
+                <p>Мы верим, что исцеление может прийти мгновенно, постепенно или получить своё окончательное исполнение в воскресении и полном искуплении человеческого тела.</p>
+                <p>Мы также признаём реальность духовной борьбы и необходимость служения освобождения. Вместе с тем освобождение от демонического влияния не должно ограничиваться только молитвой, но нуждается в дальнейшем пасторском сопровождении, ученичестве и духовном возрастании человека.</p>
               </div>
             </details>
 
@@ -346,36 +287,39 @@
               <summary><span class="belief-item__number">08</span><span>Второе пришествие и вечность</span></summary>
               <div class="belief-item__content">
                 <p>Мы верим, что Иисус Христос вновь придёт судить живых и мёртвых.</p>
-                <p>
-                  Каждый человек предстанет перед Божьим судом. Одних ожидает вечное
-                  спасение и жизнь с Богом, других — вечное осуждение.
-                </p>
-                <p>
-                  В вопросах эсхатологии мы допускаем существование различных взглядов
-                  на отдельные детали будущих событий. Эти вопросы могут рассматриваться
-                  как возможные варианты толкования при сохранении верности основным
-                  истинам христианской веры.
-                </p>
-                <p>
-                  Главный акцент мы делаем не на спорах о деталях будущего, а на призыве
-                  жить в постоянной готовности к возвращению Христа, ожидая Его пришествия
-                  в любой момент.
-                </p>
-                <p>
-                  Мы верим в новое небо и новую землю, в полное обновление всего творения
-                  и окончательное искупление человечества. Верующие получат новые
-                  прославленные тела и будут жить с Богом вечно, где уже не будет ни
-                  болезни, ни смерти, ни плача, ни скорби.
-                </p>
+                <p>Каждый человек предстанет перед Божьим судом. Одних ожидает вечное спасение и жизнь с Богом, других — вечное осуждение.</p>
+                <p>В вопросах эсхатологии мы допускаем существование различных взглядов на отдельные детали будущих событий. Эти вопросы могут рассматриваться как возможные варианты толкования при сохранении верности основным истинам христианской веры.</p>
+                <p>Главный акцент мы делаем не на спорах о деталях будущего, а на призыве жить в постоянной готовности к возвращению Христа, ожидая Его пришествия в любой момент.</p>
+                <p>Мы верим в новое небо и новую землю, в полное обновление всего творения и окончательное искупление человечества. Верующие получат новые прославленные тела и будут жить с Богом вечно, где уже не будет ни болезни, ни смерти, ни плача, ни скорби.</p>
               </div>
             </details>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="beliefs__actions">
-            <a class="button button--accent button--large" href="plan-visit.html">
-              Спланировать визит
-            </a>
-            <a class="beliefs__back" href="#top">Наверх ↑</a>
+    <!-- Bottom CTA: Want to Know Us Better? -->
+    <section class="support" aria-labelledby="about-cta-title">
+      <div class="container">
+        <div class="support__inner">
+          <div class="support-card" data-mouse-glow>
+            <div class="support-card__content">
+              <p class="eyebrow eyebrow--light" lang="en">Welcome Home</p>
+              <h2 class="section-title section-title--light" id="about-cta-title">
+                Хотите узнать
+                <span class="section-title__accent section-title__accent--block">нас ближе?</span>
+              </h2>
+              <p class="section-subtitle section-subtitle--light">Будем рады познакомиться лично, ответить на ваши вопросы и просто пообщаться.</p>
+
+              <div class="about-cta-actions">
+                <a class="button button--accent button--large" href="pastor.html">
+                  Познакомиться с пастором
+                </a>
+                <a class="button button--ghost button--large" href="plan-visit.html">
+                  Спланировать визит
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -403,13 +347,13 @@
           <h2 class="site-footer__title">Навигация</h2>
           <ul class="site-footer__list">
             <li><a href="sunday.html">Воскресенье</a></li>
-            <li><a href="about.html">О церкви</a></li>
+            <li><a href="about.html">О нас</a></li>
             <li><a href="pastor.html">Пастор</a></li>
             <li><a href="events.html">События</a></li>
             <li><a href="language-courses.html">Языковые курсы</a></li>
             <li><a href="give.html">Поддержать</a></li>
             <li><a href="plan-visit.html">Спланировать визит</a></li>
-            <li><a href="partnership">Partnership</a></li>
+            <li><a href="partnership-ru.html">Партнерство</a></li>
           </ul>
         </nav>
 
@@ -448,6 +392,6 @@
     </div>
   </footer>
 
-  <script src="scripts.js?v=20261031-1" defer></script>
+  <script src="scripts.js?v=20261104-2" defer></script>
 </body>
 </html>
