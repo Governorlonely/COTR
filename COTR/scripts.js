@@ -17,7 +17,40 @@ document.querySelectorAll("[data-set-lang]").forEach((link) => {
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-navigation]");
+const langDropdowns = document.querySelectorAll("[data-lang-dropdown]");
 const mobileBreakpoint = window.matchMedia("(max-width: 1240px)");
+
+function closeAllLangDropdowns() {
+  langDropdowns.forEach((dropdown) => {
+    dropdown.classList.remove("is-open");
+    dropdown.querySelector("[data-lang-toggle]")?.setAttribute("aria-expanded", "false");
+  });
+}
+
+langDropdowns.forEach((dropdown) => {
+  const toggle = dropdown.querySelector("[data-lang-toggle]");
+  toggle?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const willOpen = !dropdown.classList.contains("is-open");
+    closeAllLangDropdowns();
+    if (willOpen) {
+      dropdown.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  dropdown.querySelectorAll("[data-set-lang]").forEach((option) => {
+    option.addEventListener("click", () => {
+      closeAllLangDropdowns();
+    });
+  });
+});
+
+document.addEventListener("pointerdown", (event) => {
+  if (!event.target.closest("[data-lang-dropdown]")) {
+    closeAllLangDropdowns();
+  }
+});
 
 const menuLabels = {
   ru: { open: "Открыть меню", close: "Закрыть меню" },
@@ -37,6 +70,8 @@ function updateHeader() {
 
 function setMenuState(isOpen) {
   if (!menuButton || !navigation) return;
+
+  if (isOpen) closeAllLangDropdowns();
 
   const labels = getMenuLabels();
   menuButton.classList.toggle("is-active", isOpen);
@@ -65,11 +100,17 @@ navigation?.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape") {
+    closeAllLangDropdowns();
+    closeMenu();
+  }
 });
 
 mobileBreakpoint.addEventListener("change", (event) => {
-  if (!event.matches) closeMenu();
+  if (!event.matches) {
+    closeAllLangDropdowns();
+    closeMenu();
+  }
 });
 
 // Подсветка карточек следует за курсором.

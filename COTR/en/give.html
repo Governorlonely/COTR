@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20261104-2">
+  <link rel="stylesheet" href="../styles.css?v=20261105-2">
   <link rel="stylesheet" href="../typography-fix.css?v=3">
 
   <title>Support — Church on the Rock</title>
@@ -68,10 +68,34 @@
         </div>
 
         <div class="site-header__mobile-controls">
-          <div class="lang-switch" role="group" aria-label="Language selector">
-            <a class="lang-switch__link" href="../give.html" data-set-lang="ru">RU</a>
-            <a class="lang-switch__link" href="give.html" data-set-lang="en" aria-current="true">EN</a>
-            <a class="lang-switch__link" href="../ua/give.html" data-set-lang="ua">UA</a>
+          <div class="lang-dropdown" data-lang-dropdown>
+            <button
+              class="lang-dropdown__toggle"
+              type="button"
+              aria-label="Language selector"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-lang-toggle
+            >
+              <span class="lang-dropdown__current">EN</span>
+              <svg class="lang-dropdown__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="lang-dropdown__menu" role="menu" data-lang-menu>
+              <a class="lang-dropdown__option" role="menuitem" href="../give.html" data-set-lang="ru">
+                <span class="lang-dropdown__name" lang="ru">Русский</span>
+                <span class="lang-dropdown__code">RU</span>
+              </a>
+              <a class="lang-dropdown__option" role="menuitem" href="give.html" data-set-lang="en" aria-current="true">
+                <span class="lang-dropdown__name" lang="en">English</span>
+                <span class="lang-dropdown__code">EN</span>
+              </a>
+              <a class="lang-dropdown__option" role="menuitem" href="../ua/give.html" data-set-lang="ua">
+                <span class="lang-dropdown__name" lang="uk">Українська</span>
+                <span class="lang-dropdown__code">UA</span>
+              </a>
+            </div>
           </div>
           <button
             class="menu-toggle"
@@ -309,6 +333,6 @@
     </div>
   </footer>
 
-  <script src="../scripts.js?v=20261104-3" defer></script>
+  <script src="../scripts.js?v=20261105-1" defer></script>
 </body>
 </html>
